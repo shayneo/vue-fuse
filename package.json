@@ -5,6 +5,7 @@
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "main": "dist/static/data-tables.js",
   "private": false,
+  "homepage": "https://github.com/shayneo/vue-fuse",
   "keywords": [
     "vue",
     "component",
@@ -14,6 +15,10 @@
     "fuzzy search",
     "vue search"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shayneo/vue-fuse.git"
+  },
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
