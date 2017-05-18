@@ -76,7 +76,7 @@ export default {
         this.result = this.fuse.search(this.search.trim())
     },
     result () {
-      Vue.$emit('resultUpdate', this.result)
+      this.$emit('resultUpdate', this.result)
     }
   },
   mounted () {
