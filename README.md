@@ -86,7 +86,7 @@
     <td>keys</td>
     <td>List of properties that will be searched. This supports nested properties, weighted search, searching in arrays of strings and objects</td>
     <td>Array</td>
-    <td>''</td>
+    <td></td>
   </tr>
   <tr>
     <td>location</td>
