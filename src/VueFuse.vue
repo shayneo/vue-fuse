@@ -1,11 +1,6 @@
 <template>
 <div id="app">
   <input type="text" v-model="search">
-  <ul>
-    <li v-for="data in result">
-      {{ data.title +' | '+ data.author.firstName +' '+data.author.lastName}}
-    </li>
-  </ul>
 </div>
 </template>
 <script>
@@ -79,6 +74,9 @@ export default {
         }
       else
         this.result = this.fuse.search(this.search.trim())
+    },
+    result () {
+      Vue.$emit('resultUpdate', this.result)
     }
   },
   mounted () {
