@@ -2,6 +2,19 @@
 
 > A Vue.js pluggin for fuzzy search library, Fuse.js
 
+## Install
+```
+npm install --save vue-fuse
+```
+In main.js
+```
+import VueFuse from 'vue-fuse'
+
+Vue.use(VueFuse)
+```
+## Full Documentation
+This is just a simple drop in component leverage Fuse.js. For complete documentation, check out [http://fusejs.io/](http://fusejs.io/)
+
 ## Props
 <table>
   <tr>
@@ -118,7 +131,7 @@
 
 ```
 <template>
-    <vue-fuse :keys="keys" :list="list" :defaultAll="false" :eventName="bike-search-results-changed"></vue-fuse>
+  <vue-fuse :keys="keys" :list="list" :defaultAll="false" :eventName="bike-search-results-changed"></vue-fuse>
 </template>
 
 <script>
