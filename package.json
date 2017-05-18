@@ -1,6 +1,6 @@
 {
   "name": "vue-fuse",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "main": "dist/static/data-tables.js",
