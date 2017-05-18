@@ -27,6 +27,34 @@ export default {
     list: {
       type: Array
     },
+    caseSensitive: {
+      type: Boolean,
+      default: false
+    },
+    includeScore: {
+      type: Boolean,
+      default: false
+    },
+    includeMatches: {
+      type: Boolean,
+      default: false
+    },
+    tokenize: {
+      type: Boolean,
+      default: false
+    },
+    matchAllTokens: {
+      type: Boolean,
+      default: false
+    },
+    findAllMatches: {
+      type: Boolean,
+      default: false
+    },
+    id: {
+      type: String,
+      default: ''
+    },
     shouldSort: {
       type: Boolean,
       default: true
@@ -57,7 +85,13 @@ export default {
   },
   computed: {
     options () {
-      return {
+      var options = {
+        caseSensitive: this.caseSensitive,
+        includeScore: this.includeScore,
+        includeMatches: this.includeMatches,
+        tokenize: this.tokenize,
+        matchAllTokens: this.matchAllTokens,
+        findAllMatches: this.findAllMatches,
         shouldSort: this.shouldSort,
         threshold: this.threshold,
         location: this.location,
@@ -66,6 +100,10 @@ export default {
         minMatchCharLength: this.minMatchCharLength,
         keys: this.keys
       }
+      if (this.id !== '') {
+        options.id = this.id
+      }
+      return options
     }
   },
   watch: {
