@@ -16,6 +16,7 @@ Vue.use(VueFuse)
 This is just a simple drop in component leverage Fuse.js. For complete documentation, check out [http://fusejs.io/](http://fusejs.io/)
 
 ## Props
+Most of the props line up with Fuse.js `options` with the defaults set to match the defaut Fuse.js behavior.
 <table>
   <tr>
     <th>Property</th>
@@ -174,3 +175,6 @@ export default {
 }
 </script>
 ```
+
+## Accessing Results
+Results are stored in the `result` data array of the `vue-fuse` component. The component `watch`es the `result` array and emits an event when the array is changed. This event is named `fuseResultsUpdated` and contains the result array. You can also name the event yourself (this is handy if you have more than one instance of `vue-fuse` in your application) by passing in a string to the `eventName` prop.
