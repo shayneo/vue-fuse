@@ -16,6 +16,10 @@ export default {
     }
   },
   props: {
+    eventName: {
+      type: String,
+      default: 'fuseResultsUpdated'
+    },
     defaultAll: {
       type: Boolean,
       default: true
@@ -76,7 +80,7 @@ export default {
         this.result = this.fuse.search(this.search.trim())
     },
     result () {
-      this.$emit('resultUpdate', this.result)
+      this.$emit(this.eventName, this.result)
     }
   },
   mounted () {
