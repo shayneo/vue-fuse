@@ -15,8 +15,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('data-tables.js'),
-    library: 'DataTables',
+    filename: utils.assetsPath('vue-fuse.js'),
+    library: 'VueFuse',
     libraryTarget: 'umd'
   },
   externals: {
