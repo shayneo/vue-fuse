@@ -118,7 +118,7 @@ export default {
         this.result = this.fuse.search(this.search.trim())
     },
     result () {
-      this.$emit(this.eventName, this.result)
+      this.$parent.$emit(this.eventName, this.result)
     }
   },
   mounted () {
