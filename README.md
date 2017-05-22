@@ -7,7 +7,7 @@
 npm install --save vue-fuse
 ```
 In main.js
-```
+```js
 import VueFuse from 'vue-fuse'
 
 Vue.use(VueFuse)
@@ -130,11 +130,12 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
 
 ## Example
 
-```
+```vue
 <template>
   <vue-fuse :keys="keys" :list="list" :defaultAll="false" :eventName="bike-search-results-changed"></vue-fuse>
 </template>
-
+```
+```js
 <script>
 export default {
   data () {
