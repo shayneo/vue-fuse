@@ -2,10 +2,13 @@
   <div id="app">
     <h1>vue-fuse demo</h1>
     <p>This pluggin provides the 'vue-fuse' component, which can be dropped into your app. The component UI is a barebones &ltinput&gt tag, as shown below.</p><p> The component also takes a number of props, that are used to configure the search and define the event that is eminated when the search results update.</p>
-    <vue-fuse :keys="keys" :list="bikes" :defaultAll="false" eventName="bikesChanged"></vue-fuse>
-    <ul>
-      <li v-for="r in results">r</li>
-    </ul>
+    <vue-fuse :keys="keys" :list="bikes" eventName="bikesChanged" :defaultAll="defaultAllToggle"></vue-fuse>
+    <label><input type="checkbox" @click="toggle">defaultAll</label>
+    <div id="list">
+      <ul>
+        <li v-for="bike in results" key="bike.model.id">{{bike.brand}} | {{bike.model.name}} {{bike.model.id}}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -15,6 +18,7 @@ export default {
   name: 'app',
   data () {
     return {
+      defaultAllToggle: false,
       results: [],
       keys: ["brand", "model.name", "model.id"],
       bikes: [
@@ -50,6 +54,12 @@ export default {
       keys: ["brand", "model.name", "model.id"]
     }
   },
+  methods: {
+    toggle () {
+      this.defaultAllToggle = !this.defaultAllToggle
+      this.$forceUpdate()
+    }
+  },
   created () {
     this.$on('bikesChanged', results => {
       this.results = results
@@ -66,5 +76,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#list {
+  margin-left: 33%;
+  margin-right: 33%;
 }
 </style>
