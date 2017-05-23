@@ -133,7 +133,7 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
 * [DEMO SOURCE](https://github.com/shayneo/vue-fuse/tree/master/demo)
 ```vue
 <template>
-  <vue-fuse :keys="keys" :list="list" :defaultAll="false" :eventName="bike-search-results-changed"></vue-fuse>
+  <vue-fuse :keys="keys" :list="list" :defaultAll="false" :eventName="bikesChanged"></vue-fuse>
 </template>
 ```
 ```js
@@ -170,7 +170,7 @@ export default {
             id: "0432"
           }
         }
-      ]
+      ],
       keys: ["brand", "model.name", "model.id"]
     }
   }
