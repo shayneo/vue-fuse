@@ -50,8 +50,7 @@ export default {
             id: "0432"
           }
         }
-      ],
-      keys: ["brand", "model.name", "model.id"]
+      ]
     }
   },
   methods: {
