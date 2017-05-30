@@ -3,7 +3,7 @@
 > A Vue.js pluggin for fuzzy search library, Fuse.js
 
 ## Install
-```
+```bash
 npm install --save vue-fuse
 ```
 In main.js
@@ -133,7 +133,7 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
 * [DEMO SOURCE](https://github.com/shayneo/vue-fuse/tree/master/demo)
 ```vue
 <template>
-  <vue-fuse :keys="keys" :list="list" :defaultAll="false" :eventName="bikesChanged"></vue-fuse>
+  <vue-fuse :keys="keys" :list="bikes" :defaultAll="false" :eventName="bikesChanged"></vue-fuse>
 </template>
 ```
 ```js
