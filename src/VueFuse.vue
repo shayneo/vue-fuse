@@ -1,7 +1,5 @@
 <template>
-<div id="app">
   <input type="text" v-model="search">
-</div>
 </template>
 <script>
 import Fuse from 'fuse.js'
