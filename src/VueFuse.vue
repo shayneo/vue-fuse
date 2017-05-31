@@ -1,5 +1,5 @@
 <template>
-  <input type="text" v-model="search">
+  <input type="search" v-model="search">
 </template>
 <script>
 import Fuse from 'fuse.js'
@@ -119,11 +119,25 @@ export default {
       this.$parent.$emit(this.eventName, this.result)
     }
   },
-  mounted () {
-    this.fuse = new window.Fuse(this.list, this.options);
-    if (this.defaultAll) {
-      this.result = this.list
+  methods: {
+    initFuse () {
+      this.fuse = new window.Fuse(this.list, this.options);
+      if (this.defaultAll) {
+        this.result = this.list
+      }
     }
+  },
+  /**
+  * Vue 1.x
+  */
+  ready () {
+    this.initFuse()
+  },
+  /**
+  * Vue 2.x
+  */
+  mounted () {
+    this.initFuse()
   }
 }
 </script>
