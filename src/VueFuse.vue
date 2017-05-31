@@ -134,7 +134,7 @@ export default {
       this.initFuse()
   },
   /**
-  * Vue 1.x
+  * Vue 2.x
   */
   mounted () {
       this.initFuse()
