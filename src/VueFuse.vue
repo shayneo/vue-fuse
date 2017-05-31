@@ -131,13 +131,13 @@ export default {
   * Vue 1.x
   */
   ready () {
-      this.initFuse()
+    this.initFuse()
   },
   /**
   * Vue 2.x
   */
   mounted () {
-      this.initFuse()
+    this.initFuse()
   }
 }
 </script>
