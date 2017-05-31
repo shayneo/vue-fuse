@@ -1,6 +1,7 @@
-# vue-fuse
+# vue-fuse [![npm package](https://img.shields.io/npm/v/vue-fuse.svg)](https://www.npmjs.org/package/vue-fuse)
 
 > A Vue.js pluggin for fuzzy search library, Fuse.js
+
 
 ## Install
 ```bash
