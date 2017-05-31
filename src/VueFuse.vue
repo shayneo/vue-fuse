@@ -119,7 +119,7 @@ export default {
       this.$parent.$emit(this.eventName, this.result)
     }
   },
-  methods () {
+  methods: {
     initFuse () {
       this.fuse = new window.Fuse(this.list, this.options);
       if (this.defaultAll) {
