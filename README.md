@@ -134,7 +134,7 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
 * [DEMO SOURCE](https://github.com/shayneo/vue-fuse/tree/master/demo)
 ```vue
 <template>
-  <vue-fuse :keys="keys" :list="bikes" :defaultAll="false" :eventName="bikesChanged"></vue-fuse>
+  <vue-fuse :keys="keys" :list="bikes" :default-all="false" :event-name="bikesChanged"></vue-fuse>
 </template>
 ```
 ```js
