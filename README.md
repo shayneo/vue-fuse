@@ -5,7 +5,10 @@
 
 ## Install
 ```bash
-npm install --save vue-fuse
+npm install vue-fuse
+```
+```bash
+yarn add vue-fuse
 ```
 In main.js
 ```js
