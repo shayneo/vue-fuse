@@ -1,6 +1,6 @@
 {
   "name": "vue-fuse",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "main": "dist/static/vue-fuse.js",
@@ -25,8 +25,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "fuse.js": "^3.0.3",
-    "vue": "^2.2.6"
+    "fuse.js": "^3.0.5",
+    "vue": "^2.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
