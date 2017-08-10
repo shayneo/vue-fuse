@@ -1,6 +1,7 @@
 # vue-fuse [![npm package](https://img.shields.io/npm/v/vue-fuse.svg)](https://www.npmjs.org/package/vue-fuse)
 
 > A Vue.js pluggin for fuzzy search library, Fuse.js
+> There are two ways to use this plugin. The `vue-fuse` component, or the `$search` method. Be sure to take a look at the documentation for both below.
 
 ## Install
 ```bash
