@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import VueFuse from '/Users/shayneosullivan/projects/vue-fuse'
+import VueFuse from 'vue-fuse'
 
 Vue.use(VueFuse)
 
