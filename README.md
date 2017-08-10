@@ -2,7 +2,6 @@
 
 > A Vue.js pluggin for fuzzy search library, Fuse.js
 
-
 ## Install
 ```bash
 npm install vue-fuse
@@ -16,10 +15,27 @@ import VueFuse from 'vue-fuse'
 
 Vue.use(VueFuse)
 ```
-## Full Documentation
+## Full Fuse.js Documentation
 This is just a simple drop in component leverage Fuse.js. For complete documentation, check out [http://fusejs.io/](http://fusejs.io/)
 
-## Props
+## $search Method
+The `$search` instance method allows you to execute a search programmatically within your application. Calling the `this.$search` function will return a promise, that is fulfilled once Fuse.js returns completes the search. `$search` takes the following params:
+
+* `term` - (required) the search term or query that you will search by
+* `list` - (required) an array of items to search
+* `options` - (required) an object with fuse.js options. At minimum, you must provide an array of `keys`. Other options will default to the fuse.js defaults (see here: http://fusejs.io/)
+
+### $search example
+```vue
+this.$search(this.term, this.bikes, this.options).then(results => {
+  this.searchResults = results
+})
+```
+
+## vue-fuse Component
+The `vue-fuse` component can be added any of your existing Vue components. It creates an `input` html element, and takes props (listed below) to execute a search. Search results are then returned via events.
+
+### Compoment Props
 Most of the props line up with Fuse.js `options` with the defaults set to match the defaut Fuse.js behavior.
 <table>
   <tr>
@@ -132,7 +148,7 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
   </tr>
 </table>
 
-## DEMO / EXAMPLE
+### Component  Demo / Example
 * [LIVE DEMO](https://vue-fuse.firebaseapp.com/)
 * [DEMO SOURCE](https://github.com/shayneo/vue-fuse/tree/master/demo)
 ```vue
@@ -182,5 +198,6 @@ export default {
 </script>
 ```
 
-## Accessing Results
+### Accessing Results from vue-fuse Component
 Results are stored in the `result` data array of the `vue-fuse` component. The component `watch`es the `result` array and emits an event when the array is changed. This event is named `fuseResultsUpdated` and contains the result array. You can also name the event yourself (this is handy if you have more than one instance of `vue-fuse` in your application) by passing in a string to the `eventName` prop.
+
