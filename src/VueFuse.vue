@@ -3,7 +3,9 @@
 </template>
 <script>
 import Fuse from 'fuse.js'
-window.Fuse = Fuse
+if (typeof window !== 'undefined') {
+  window.Fuse = Fuse
+}
 
 export default {
   data () {
