@@ -3,7 +3,7 @@
     <div class="demo">
       <h2><code>vue-fuse</code> component demo</h2>
       <p>This pluggin provides the 'vue-fuse' component, which can be dropped into your app. The component UI is a barebones &ltinput&gt tag, as shown below.</p><p> The component also takes a number of props, that are used to configure the search and define the event that is eminated when the search results update.</p>
-      <vue-fuse :keys="keys" :list="bikes" event-name="bikesChanged" :default-all="defaultAllToggle"></vue-fuse>
+      <vue-fuse :keys="keys" :list="bikes" event-name="bikesChanged" inputChangeEventName="bikeSearchInputChanged" :default-all="defaultAllToggle"></vue-fuse>
       <label><input type="checkbox" @click="toggle">defaultAll</label>
       <div id="list">
         <ul>

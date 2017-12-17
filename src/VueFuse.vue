@@ -18,6 +18,10 @@ export default {
       type: String,
       default: 'fuseResultsUpdated'
     },
+    inputChangeEventName: {
+      type: String,
+      default: 'fuseInputChanged'
+    },
     defaultAll: {
       type: Boolean,
       default: true
@@ -105,7 +109,10 @@ export default {
     }
   },
   watch: {
-    search() {
+    search () {
+
+      this.$parent.$emit(this.inputChangeEventName, this.search);
+
       if (this.search.trim() === '')
         if (this.defaultAll) {
           this.result = this.list 
