@@ -52,6 +52,12 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
     <td>fuseResultsUpdated</td>
   </tr>
   <tr>
+    <td>inputChangeEventName</td>
+    <td>give a name to the event emitted when the text in the input field is changed. This event payload contains the string of text in the input field</td>
+    <td>String</td>
+    <td>fuseInputChanged</td>
+  </tr>
+  <tr>
     <td>defaultAll</td>
     <td>If true, results will inclide ALL items in list when search is null. If false, results will inclide no items when search is null.</td>
     <td>Boolean</td>
