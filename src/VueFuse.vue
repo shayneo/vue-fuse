@@ -14,6 +14,10 @@ export default {
     }
   },
   props: {
+    search: {
+      type: String,
+      default: ''
+    },
     eventName: {
       type: String,
       default: 'fuseResultsUpdated'
