@@ -6,14 +6,19 @@ import Fuse from 'fuse.js'
 window.Fuse = Fuse
 
 export default {
+  name: 'VueFuse',
   data () {
     return {
       fuse: null,
-      search: '',
+      value: this.$props.search,
       result: []
     }
   },
   props: {
+    search: {
+      type: String,
+      default: ''
+    },
     eventName: {
       type: String,
       default: 'fuseResultsUpdated'
@@ -110,17 +115,19 @@ export default {
   },
   watch: {
     search () {
+      this.value = this.search || ''
+    },
+    value () {
+      this.$parent.$emit(this.inputChangeEventName, this.value);
 
-      this.$parent.$emit(this.inputChangeEventName, this.search);
-
-      if (this.search.trim() === '')
+      if (this.value.trim() === '')
         if (this.defaultAll) {
-          this.result = this.list 
+          this.result = this.list
         } else {
           this.result = []
         }
       else
-        this.result = this.fuse.search(this.search.trim())
+        this.result = this.fuse.search(this.value.trim())
     },
     result () {
       this.$parent.$emit(this.eventName, this.result)
