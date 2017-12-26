@@ -3,7 +3,6 @@
 </template>
 <script>
 import Fuse from 'fuse.js'
-window.Fuse = Fuse
 
 export default {
   data () {
@@ -128,7 +127,7 @@ export default {
   },
   methods: {
     initFuse () {
-      this.fuse = new window.Fuse(this.list, this.options);
+      this.fuse = new Fuse(this.list, this.options);
       if (this.defaultAll) {
         this.result = this.list
       }
