@@ -1,5 +1,5 @@
 <template>
-  <input type="search" v-model="search">
+  <input type="search" v-model="value">
 </template>
 <script>
 import Fuse from 'fuse.js'
@@ -9,7 +9,7 @@ export default {
   data () {
     return {
       fuse: null,
-      value: this.$props.search,
+      value: '',
       result: []
     }
   },
@@ -114,7 +114,7 @@ export default {
   },
   watch: {
     search () {
-      this.value = this.search || ''
+      this.value = this.search
     },
     value () {
       this.$parent.$emit(this.inputChangeEventName, this.value);
@@ -137,6 +137,9 @@ export default {
       this.fuse = new Fuse(this.list, this.options);
       if (this.defaultAll) {
         this.result = this.list
+      }
+      if (this.search) {
+        this.value = this.search
       }
     }
   },
