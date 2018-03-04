@@ -1,6 +1,6 @@
 {
   "name": "vue-fuse",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "main": "dist/static/vue-fuse.js",
