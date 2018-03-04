@@ -46,6 +46,12 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
     <th>Default values</th>
   </tr>
   <tr>
+    <td>placeholder</td>
+    <td>placeholder text for the input</td>
+    <td>String</td>
+    <td>""</td>
+  </tr>
+  <tr>
     <td>eventName</td>
     <td>give a name to the event emitted when the search results are updated</td>
     <td>String</td>
