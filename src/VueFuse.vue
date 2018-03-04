@@ -1,5 +1,5 @@
 <template>
-  <input type="search" v-model="value">
+  <input type="search" v-model="value" :placeholder="placeholder">
 </template>
 <script>
 import Fuse from 'fuse.js'
@@ -14,6 +14,10 @@ export default {
     }
   },
   props: {
+    placeholder: {
+      type: String,
+      default: ''
+    },
     search: {
       type: String,
       default: ''
