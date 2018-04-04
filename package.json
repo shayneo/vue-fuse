@@ -3,6 +3,7 @@
   "version": "1.5.1",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
+  "license": "MIT",
   "main": "dist/static/vue-fuse.js",
   "private": false,
   "homepage": "https://github.com/shayneo/vue-fuse",
