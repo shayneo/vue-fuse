@@ -118,6 +118,7 @@ export default {
   },
   watch: {
     list () {
+      this.fuse.list = this.list
       this.fuseSearch()
     },
     search () {
