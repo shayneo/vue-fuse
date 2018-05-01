@@ -117,6 +117,9 @@ export default {
     }
   },
   watch: {
+    list () {
+      this.fuseSearch()
+    },
     search () {
       this.value = this.search
     },
