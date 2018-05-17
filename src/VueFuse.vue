@@ -117,12 +117,32 @@ export default {
     }
   },
   watch: {
+    list () {
+      this.fuse.list = this.list
+      this.fuseSearch()
+    },
     search () {
       this.value = this.search
     },
     value () {
-      this.$parent.$emit(this.inputChangeEventName, this.value);
-
+      this.$parent.$emit(this.inputChangeEventName, this.value)
+      this.fuseSearch()
+    },
+    result () {
+      this.$parent.$emit(this.eventName, this.result)
+    }
+  },
+  methods: {
+    initFuse () {
+      this.fuse = new Fuse(this.list, this.options)
+      if (this.defaultAll) {
+        this.result = this.list
+      }
+      if (this.search) {
+        this.value = this.search
+      }
+    },
+    fuseSearch () {
       if (this.value.trim() === '')
         if (this.defaultAll) {
           this.result = this.list
@@ -131,20 +151,6 @@ export default {
         }
       else
         this.result = this.fuse.search(this.value.trim())
-    },
-    result () {
-      this.$parent.$emit(this.eventName, this.result)
-    }
-  },
-  methods: {
-    initFuse () {
-      this.fuse = new Fuse(this.list, this.options);
-      if (this.defaultAll) {
-        this.result = this.list
-      }
-      if (this.search) {
-        this.value = this.search
-      }
     }
   },
   /**
