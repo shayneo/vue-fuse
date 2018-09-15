@@ -35,25 +35,25 @@ export default {
       books: [
         {
           name: 'Genisis',
-          description: 'First book of Moses -- History of Man from the beginning'
+          description: 'Genesis answers two big questions: “How did God’s relationship with the world begin?” and “Where did the nation of Israel come from?”'
         }, {
           name: 'Exodus',
-          description: 'Second book of Moses -- Deliverance of Israel from captivity'
+          description: 'God saves Israel from slavery in Egypt, and then enters into a special relationship with them.'
         }, {
           name: 'Leviticus',
-          description: 'Third book of Moses -- Book of the law'
+          description: 'God gives Israel instructions for how to worship Him.'
         }, {
           name: 'Numbers',
-          description: 'Fourth book of Moses -- Story of wandering in the wilderness'
+          description: 'srael fails to trust and obey God, and wanders in the wilderness for 40 years.'
         }, {
           name: 'Deuteronomy',
-          description: 'Fifth book of Moses -- 2nd recital of law before promise land'
+          description: 'Moses gives Israel instructions (in some ways, a recap of the laws in Exodus–Numbers) for how to love and obey God in the Promised Land.'
         }, {
           name: 'Joshua',
-          description: 'Took over as judge of Israel after Moses'
+          description: 'Joshua (Israel’s new leader) leads Israel to conquer the Promised land, then parcels out territories to the twelve tribes of Israel.'
         }, {
           name: 'Judges',
-          description: '6 Judges, men and women, who lead the children of Israel until they asked God for a king'
+          description: 'Israel enters a cycle of turning from God, falling captive to oppressive nations, calling out to God, and being rescued by leaders God sends their way (called “judges”).'
         }, {
           name: 'Ruth',
           description: 'The book of Ruth tells a touching story of the love and devotion of an ancestor of David and Jesus Christ.'
