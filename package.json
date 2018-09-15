@@ -1,10 +1,10 @@
 {
   "name": "vue-fuse",
-  "version": "1.5.2",
+  "version": "2.0.0beta",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "license": "MIT",
-  "main": "dist/static/vue-fuse.js",
+  "main": "./src/index.js",
   "private": false,
   "homepage": "https://github.com/shayneo/vue-fuse",
   "keywords": [
@@ -34,6 +34,7 @@
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-standard": "^3.0.3",
+    "tailwindcss": "^0.6.5",
     "vue-template-compiler": "^2.5.17"
   }
 }

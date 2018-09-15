@@ -1,8 +1,8 @@
-import VueFuse from './src/VueFuse.vue'
+import component from './components/VueFuse.vue'
 import fuse from 'fuse.js'
 
-VueFuse.install = function(Vue) {
-  Vue.component('vue-fuse', VueFuse)
+let VueFuse = Vue => {
+  Vue.component(component.name, component)
 
   Vue.prototype.$search = function (term, list, options) {
     return new Promise(function (resolve, reject) {
@@ -12,5 +12,4 @@ VueFuse.install = function(Vue) {
     })
   }
 }
-
 export default VueFuse
