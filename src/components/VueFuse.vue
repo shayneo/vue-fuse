@@ -3,7 +3,6 @@
 </template>
 <script>
 import Fuse from 'fuse.js'
-
 export default {
   name: 'VueFuse',
   data () {
@@ -89,7 +88,7 @@ export default {
       type: Number,
       default: 1
     },
-    keys:  {
+    keys: {
       type: Array
     }
   },
@@ -143,14 +142,15 @@ export default {
       }
     },
     fuseSearch () {
-      if (this.value.trim() === '')
+      if (this.value.trim() === '') {
         if (this.defaultAll) {
           this.result = this.list
         } else {
           this.result = []
         }
-      else
+      } else {
         this.result = this.fuse.search(this.value.trim())
+      }
     }
   },
   /**
