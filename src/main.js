@@ -1,13 +1,18 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
+import './tailwind.css'
+import Fuse from 'fuse.js'
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+Vue.prototype.$search = function (term, list, options) {
+  return new Promise(function (resolve, reject) {
+    var run = new Fuse(list, options)
+    var results = run.search(term)
+    resolve(results)
+  })
+}
+
 new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App }
-})
+  render: h => h(App)
+}).$mount('#app')
