@@ -23,6 +23,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test": "vue-cli-service test:unit --coverage",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -35,6 +36,10 @@
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-standard": "^3.0.3",
     "tailwindcss": "^0.6.5",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "@vue/cli-plugin-unit-jest": "^3.0.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.0.1"
   }
 }

@@ -125,9 +125,11 @@ export default {
     },
     value () {
       this.$parent.$emit(this.inputChangeEventName, this.value)
+      this.$emit(this.inputChangeEventName, this.value)
       this.fuseSearch()
     },
     result () {
+      this.$emit(this.eventName, this.result)
       this.$parent.$emit(this.eventName, this.result)
     }
   },
