@@ -162,9 +162,10 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
 </table>
 
 ### Component  Demo / Example
-* [LIVE DEMO](https://vue-fuse.firebaseapp.com/)
-* [DEMO SOURCE](https://github.com/shayneo/vue-fuse/tree/master/demo)
-```vue
+* [LIVE DEMO](https://shayneo.github.io/vue-fuse/)
+* [DEMO SOURCE](https://github.com/shayneo/vue-fuse/blob/master/src/App.vue)
+
+```
 <template>
   <vue-fuse :keys="keys" :list="bikes" :defaultAll="false" :eventName="bikesChanged"></vue-fuse>
 </template>
