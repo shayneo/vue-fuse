@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="bg-teal-lightest">
     <div class="md:w-1/2 center bg-teal-light min-h-screen overflow-scroll">
+      <h1 class="text-grey-darkest my-4">Vue Fuse Demo</h1>
+      <p class="text-grey-darkest px-12">Type in the input below to search using the VueFuse component, or use the button to call the $search method.</p>
       <div class="flex flex-col pt-8">
         <VueFuse
           placeholder="Search Books of the Bible"
