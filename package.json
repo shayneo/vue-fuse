@@ -1,10 +1,10 @@
 {
   "name": "vue-fuse",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "license": "MIT",
-  "main": "dist/vue-fuse.common",
+  "main": "dist/vue-fuse.umd.min",
   "private": false,
   "homepage": "https://github.com/shayneo/vue-fuse",
   "keywords": [
