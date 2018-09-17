@@ -1,15 +1,13 @@
-import component from './components/VueFuse.vue'
-import fuse from 'fuse.js'
+import Vue from 'vue'
+import VueFuse from './components/VueFuse.vue'
+import Fuse from 'fuse.js'
 
-let VueFuse = Vue => {
-  Vue.component(component.name, component)
-
-  Vue.prototype.$search = function (term, list, options) {
-    return new Promise(function (resolve, reject) {
-      var run = new fuse(list, options)
-      var results = run.search(term)
-      resolve(results)
-    })
-  }
+Vue.component(VueFuse.name, VueFuse)
+Vue.prototype.$search = function (term, list, options) {
+  return new Promise(function (resolve, reject) {
+    var run = new Fuse(list, options)
+    var results = run.search(term)
+    resolve(results)
+  })
 }
-export default VueFuse
+export default { VueFuse }
