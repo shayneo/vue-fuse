@@ -1,10 +1,10 @@
 {
   "name": "vue-fuse",
-  "version": "2.0.0",
+  "version": "2.0.1beta",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "license": "MIT",
-  "main": "./src/index.js",
+  "main": "dist/vue-fuse.common",
   "private": false,
   "homepage": "https://github.com/shayneo/vue-fuse",
   "keywords": [
@@ -23,6 +23,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "bundle": "vue-cli-service build --target lib --name vue-fuse ./src/index.js",
     "test": "vue-cli-service test:unit --coverage",
     "lint": "vue-cli-service lint"
   },
@@ -41,5 +42,12 @@
     "@vue/cli-plugin-unit-jest": "^3.0.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1"
-  }
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ]
 }
