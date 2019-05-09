@@ -12,4 +12,8 @@ function install(Vue) {
   }
 }
 
-export default install
+// to be registered via Vue.use() as well as Vue.component()
+VueFuse.install = install
+
+// Export component by default
+export default VueFuse
