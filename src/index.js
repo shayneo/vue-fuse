@@ -1,7 +1,7 @@
 import VueFuse from './components/VueFuse.vue'
 import Fuse from 'fuse.js'
 
-function install(Vue) {
+function install (Vue) {
   Vue.component(VueFuse.name, VueFuse)
   Vue.prototype.$search = function (term, list, options) {
     return new Promise(function (resolve, reject) {
