@@ -52,6 +52,10 @@ export default {
       type: Boolean,
       default: false
     },
+    tokenSeparator: {
+      type: RegExp,
+      default: RegExp(" ")
+    },
     matchAllTokens: {
       type: Boolean,
       default: false
@@ -99,6 +103,7 @@ export default {
         includeScore: this.includeScore,
         includeMatches: this.includeMatches,
         tokenize: this.tokenize,
+        tokenSeparator: this.tokenSeparator,
         matchAllTokens: this.matchAllTokens,
         findAllMatches: this.findAllMatches,
         shouldSort: this.shouldSort,
