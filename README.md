@@ -112,6 +112,12 @@ Most of the props line up with Fuse.js `options` with the defaults set to match 
     <td>false</td>
   </tr>
   <tr>
+    <td>tokenSeparator</td>
+    <td>Regex used to separate words when searching. Only applicable when `tokenize` is `true`.</td>
+    <td>Regex</td>
+    <td>`RegExp(' ')`</td>
+  </tr>
+  <tr>
     <td>matchAllTokens</td>
     <td>When true, the result set will only include records that match all tokens. Will only work if tokenize is also true.</td>
     <td>Boolean</td>
