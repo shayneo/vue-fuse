@@ -15,7 +15,7 @@
           placeholder="Search Books of the Bible"
           event-name="results"
           :list="books"
-          :keys="['name']"
+          :keys="['name', 'description']"
           class="w-64 text-center h-8 border rounded-lg center"
         />
         <button
