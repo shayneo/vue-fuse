@@ -54,7 +54,9 @@ export default {
     },
     tokenSeparator: {
       type: RegExp,
-      default: RegExp(' ')
+      default() {
+        return new RegExp(' ');
+      }
     },
     matchAllTokens: {
       type: Boolean,
