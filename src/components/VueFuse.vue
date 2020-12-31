@@ -39,6 +39,10 @@ export default {
       this.initFuse()
       this.fuseSearch()
     },
+    fuseOpts () {
+      this.initFuse()
+      this.fuseSearch()
+    },
     search () {
       this.value = this.search
     },
