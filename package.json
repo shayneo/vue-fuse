@@ -1,6 +1,6 @@
 {
   "name": "vue-fuse",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "fuse.js": "^3.4.6"
+    "fuse.js": "^6.4.4"
   },
   "peerDependencies": {
     "vue": "^2.6.10"

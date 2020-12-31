@@ -16,15 +16,16 @@
         <VueFuse
           placeholder="Search Books of the Bible"
           event-name="results"
+          @fuse-results="handleResults"
           :list="books"
-          :keys="['name', 'description']"
+          :fuse-opts="{
+            keys: ['name', 'description']
+          }"
           class="w-64 text-center h-8 border rounded-lg center"
         />
-        <button
-          class="p-4 outline rounded-lg bg-grey-darkest text-white text-xs w-1/2 mt-6 ml-auto mr-auto"
-          @click="runSearch">This Button Uses Search Method, with term 'John'</button>
+        <button @click="books.push({ name: 'Shayne', description: 'Shayne'})">add book</button>
       </div>
-      <div v-for="book in results" :key="book.name" class="rounded-lg bg-blue text-white p-4 m-4 flex text-left">
+      <div v-for="(book, i) in results" :key="i" class="rounded-lg bg-blue text-white p-4 m-4 flex text-left">
         <div class="w-1/4">{{ book.name }}</div>
         <div class="ml-4 w-3/4">{{ book.description }}</div>
       </div>
@@ -247,16 +248,12 @@ export default {
     }
   },
   methods: {
-    runSearch () {
-      this.$search('John', this.books, { keys: ['name'] }).then(result => {
-        this.results = result
-      })
+    handleResults (results) {
+      this.results = results.map(r => r.item)
     }
   },
   created () {
-    this.$on('results', results => {
-      this.results = results
-    })
+    this.results = this.books
   }
 }
 </script>
