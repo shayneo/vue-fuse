@@ -31,7 +31,7 @@ export default {
     },
     fuseOpts: {
       type: Object,
-      default: () => { return {}}
+      default: () => { return {} }
     }
   },
   watch: {
