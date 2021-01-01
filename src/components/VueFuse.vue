@@ -36,15 +36,14 @@ export default {
   },
   watch: {
     list () {
-      console.log('list changed')
       if (this.fuse) {
-        console.log('set coll')
         this.fuse.setCollection(this.list)
         this.fuseSearch()
       }
     },
     fuseOpts () {
       this.fuse.options = this.fuseOpts
+      this.fuseSearch()
     },
     search () {
       this.value = this.search
@@ -64,7 +63,6 @@ export default {
       })
     },
     initFuse () {
-      console.log('init')
       this.fuse = new Fuse(this.list, this.fuseOpts)
       if (this.defaultAll) {
         this.result = this.defaultAllList(this.list)

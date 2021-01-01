@@ -13,10 +13,10 @@ describe('VueFuse', () => {
   let wrapper = shallowMount(VueFuse, {
     propsData: {
       placeholder: 'Search for things',
-      eventName: 'testevent',
-      inputChangeEventName: 'testchange',
       list: list,
-      keys: ['name'],
+      fuseOpts: {
+        keys: ['name'],
+      },
     },
   })
   let input = wrapper.find('input')
@@ -33,15 +33,15 @@ describe('VueFuse', () => {
     wrapper.setData({
       value: 'teemo',
     })
-    expect(wrapper.vm.result).toEqual([{ id: 1234, name: 'teemo' }])
+    expect(wrapper.vm.result).toEqual([{ 'item': { 'id': 1234, 'name': 'teemo' }, 'refIndex': 3 }])
   })
 
   it('should have fired event for results', () => {
     wrapper.setData({
       value: 'new',
     })
-    expect(wrapper.emitted('testevent')).toBeTruthy()
-    expect(wrapper.emitted('testchange')).toBeTruthy()
+    expect(wrapper.emitted('fuse-input')).toBeTruthy()
+    expect(wrapper.emitted('fuse-results')).toBeTruthy()
   })
 
   it('should return list if defaultAll is true and value is empy', () => {
@@ -51,7 +51,7 @@ describe('VueFuse', () => {
     wrapper.setData({
       value: '',
     })
-    expect(wrapper.vm.result).toEqual(list)
+    expect(wrapper.vm.result).toEqual([{ 'item': { 'id': 1, 'name': 'steve' }, 'refIndex': 0 }, { 'item': { 'id': 12, 'name': 'bill' }, 'refIndex': 1 }, { 'item': { 'id': 123, 'name': 'ren' }, 'refIndex': 2 }, { 'item': { 'id': 1234, 'name': 'teemo' }, 'refIndex': 3 }, { 'item': { 'id': 1000, 'name': 'alex' }, 'refIndex': 4 }])
   })
 
   it('should handle changes to list', () => {
@@ -64,26 +64,33 @@ describe('VueFuse', () => {
     wrapper.setData({
       value: 'mar',
     })
-    expect(wrapper.vm.result).toEqual([{ name: 'mario' }])
-  })
-
-  it('should return ids if id prop is defined', () => {
-    wrapper.setProps({
-      list: list,
-      id: 'id',
-    })
-    wrapper.setData({
-      value: 'alex',
-    })
-    expect(wrapper.vm.result).toEqual([{ id: 1000, name: 'alex' }])
+    expect(wrapper.vm.result).toEqual([{ 'item': { 'name': 'mario' }, 'refIndex': 0 }])
   })
 
   it('should return results by search prop', () => {
     wrapper.setProps({
+      list,
       search: 'alex',
-      id: '',
     })
-    wrapper.vm.initFuse()
-    expect(wrapper.vm.result).toEqual([{ id: 1000, name: 'alex' }])
+    expect(wrapper.vm.value).toEqual('alex')
+    expect(wrapper.vm.result).toEqual([{ 'item': { 'id': 1000, 'name': 'alex' }, 'refIndex': 4 }])
+  })
+
+  it('should include the score', () => {
+    const wrapper = shallowMount(VueFuse, {
+      propsData: {
+        placeholder: 'Search for things',
+        list: list,
+        fuseOpts: {
+          keys: ['name'],
+          includeScore: true,
+        },
+      },
+    })
+    wrapper.setProps({
+      search: 'alex',
+    })
+    expect(wrapper.vm.value).toEqual('alex')
+    expect(wrapper.vm.result[0]).toHaveProperty('score')
   })
 })

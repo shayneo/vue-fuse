@@ -11,23 +11,34 @@
     </div>
     <div class="md:w-1/2 center bg-teal-light min-h-screen overflow-scroll">
       <h1 class="text-grey-darkest my-4">Vue Fuse Demo</h1>
-      <p class="text-grey-darkest px-12">Type in the input below to search using the VueFuse component, or use the button to call the $search method.</p>
-      <div class="flex flex-col pt-8">
+      <div>
         <VueFuse
           placeholder="Search Books of the Bible"
           @fuse-results="handleResults"
           :list="books"
-          :fuse-opts="{
-            keys: ['name', 'description'],
-            includeScore: true
-          }"
+          :fuse-opts="options"
+          :search="search"
           class="w-64 text-center h-8 border rounded-lg center"
         />
-        <button @click="books.push({ name: 'Shayne', description: 'Shayne'})">add book</button>
+        <p class="mt-2">Type in the input above to search</p>
+        <button class="bg-blue rounded p-2 text-white hover:bg-teal-dark" @click="advanced = !advanced">{{ advanced ? 'Hide Advanced Options' : 'Show Advanced Options'}}</button>
+        <div v-if="advanced" class="bg-teal p-2 mb-2">
+          <h3>Advanced Options</h3>
+          <p class="mt-2">changes to fuse-opts, search or list props trigger new searches.</p>
+          <p class="mt-2 mb-4">For a complete list of options visit <a href="http://fusejs.io/" class="fuse text-red underline">fusejs.io</a></p>
+          Include Score
+          <input type="checkbox" v-model="options.includeScore">
+          <p class="text-sm mb-4">(changing fuse-opts on the fly will re-run the search)</p>
+
+          Seach Prop
+          <input type="text" v-model="search" class="w-48">
+          <p class="text-sm">Optionally, use the search prop to map data to the vue-fuse search input</p>
+        </div>
       </div>
       <div v-for="(book, i) in results" :key="i" class="rounded-lg bg-blue text-white p-4 m-4 flex text-left">
-        <div class="w-1/4">{{ book.name }}</div>
-        <div class="ml-4 w-3/4">{{ book.description }}</div>
+        <div class="w-1/4">{{ book.item.name }}</div>
+        <div :class="options.includeScore ? 'w-1/2' : 'w-3/4'" class="px-2">{{ book.item.description }}</div>
+        <div v-if="options.includeScore" class="pl- w-1/4">{{ book.score }}</div>
       </div>
     </div>
   </div>
@@ -43,6 +54,18 @@ export default {
   },
   data () {
     return {
+      advanced: false,
+      search: '',
+      options: {
+        keys: [
+          {
+            name: 'name',
+            weight: 2,
+          },
+          'description',
+        ],
+        includeScore: true,
+      },
       results: [],
       books: [
         {
@@ -248,8 +271,8 @@ export default {
     }
   },
   methods: {
-    handleResults (rs) {
-      this.results = rs.map(r => r.item)
+    handleResults (r) {
+      this.results = r
     },
   },
 }
