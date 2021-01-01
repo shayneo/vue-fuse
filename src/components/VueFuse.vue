@@ -10,38 +10,41 @@ export default {
     return {
       fuse: null,
       value: '',
-      result: []
+      result: [],
     }
   },
   props: {
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     search: {
       type: String,
-      default: ''
+      default: '',
     },
     defaultAll: {
       type: Boolean,
-      default: true
+      default: true,
     },
     list: {
-      type: Array
+      type: Array,
     },
     fuseOpts: {
       type: Object,
-      default: () => { return {} }
-    }
+      default: () => { return {} },
+    },
   },
   watch: {
     list () {
-      this.initFuse()
-      this.fuseSearch()
+      console.log('list changed')
+      if (this.fuse) {
+        console.log('set coll')
+        this.fuse.setCollection(this.list)
+        this.fuseSearch()
+      }
     },
     fuseOpts () {
-      this.initFuse()
-      this.fuseSearch()
+      this.fuse.options = this.fuseOpts
     },
     search () {
       this.value = this.search
@@ -52,13 +55,19 @@ export default {
     },
     result () {
       this.$emit('fuse-results', this.result)
-    }
+    },
   },
   methods: {
+    defaultAllList (list) {
+      return list.map((item, refIndex) => {
+        return { item, refIndex }
+      })
+    },
     initFuse () {
+      console.log('init')
       this.fuse = new Fuse(this.list, this.fuseOpts)
       if (this.defaultAll) {
-        this.result = this.list
+        this.result = this.defaultAllList(this.list)
       }
       if (this.search) {
         this.value = this.search
@@ -67,17 +76,17 @@ export default {
     fuseSearch () {
       if (this.value.trim() === '') {
         if (this.defaultAll) {
-          this.result = this.list
+          this.result = this.defaultAllList(this.list)
         } else {
           this.result = []
         }
       } else {
         this.result = this.fuse.search(this.value.trim())
       }
-    }
+    },
   },
   mounted () {
     this.initFuse()
-  }
+  },
 }
 </script>

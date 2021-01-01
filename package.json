@@ -27,9 +27,6 @@
     "test": "vue-cli-service test:unit --coverage",
     "lint": "vue-cli-service lint"
   },
-  "dependencies": {
-    "fuse.js": "^6.4.4"
-  },
   "peerDependencies": {
     "vue": "^2.6.10"
   },
@@ -52,5 +49,8 @@
     "public/*",
     "*.json",
     "*.js"
-  ]
+  ],
+  "dependencies": {
+    "fuse.js": "^6.4.4"
+  }
 }

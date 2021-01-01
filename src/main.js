@@ -14,5 +14,5 @@ Vue.prototype.$search = function (term, list, options) {
 }
 
 new Vue({
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')
