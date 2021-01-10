@@ -31,19 +31,20 @@
         />
         <p class="mt-2">Type in the input above to search</p>
         <button
-          class="bg-blue rounded p-2 text-white hover:bg-teal-dark"
-          @click="advanced = !advanced">{{ advanced ? 'Hide Advanced Options' : 'Show Advanced Options' }}</button>
+          class="bg-blue rounded p-2 my-2 text-white hover:bg-teal-dark"
+          @click="advanced = !advanced">{{ advanced ? 'Hide Additional Options' : 'Show Additional Options' }}</button>
         <div
           v-if="advanced"
-          class="bg-teal p-2 mb-2">
-          <h3>Advanced Options</h3>
+          class="bg-teal p-2 mb-2"
+        >
+          <h3>Additional Options</h3>
           <p class="mt-2">changes to fuse-opts, search or list props trigger new searches.</p>
           <p class="mt-2 mb-4">For a complete list of options visit <a
             href="http://fusejs.io/"
             class="fuse text-red underline">fusejs.io</a></p>
           Include Score
           <input
-            v-model="options.includeScore"
+            v-model="includeScore"
             type="checkbox">
           <p class="text-sm mb-4">(changing fuse-opts on the fly will re-run the search)</p>
 
@@ -65,7 +66,7 @@
           class="px-2">{{ book.item.description }}</div>
         <div
           v-if="options.includeScore"
-          class="pl- w-1/4">{{ book.score }}</div>
+          class="pl-2 w-1/4">{{ book.score }}</div>
       </div>
     </div>
   </div>
@@ -83,16 +84,7 @@ export default {
     return {
       advanced: false,
       search: '',
-      options: {
-        keys: [
-          {
-            name: 'name',
-            weight: 2,
-          },
-          'description',
-        ],
-        includeScore: true,
-      },
+      includeScore: false,
       results: [],
       books: [
         {
@@ -296,6 +288,20 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    options () {
+      return {
+        keys: [
+          {
+            name: 'name',
+            weight: 2,
+          },
+          'description',
+        ],
+        includeScore: this.includeScore,
+      }
+    },
   },
   methods: {
     handleResults (r) {

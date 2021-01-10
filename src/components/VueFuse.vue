@@ -43,6 +43,7 @@ export default {
       result: [],
     }
   },
+  emits: ['fuse-input', 'fuse-results'],
   watch: {
     list () {
       if (this.fuse) {

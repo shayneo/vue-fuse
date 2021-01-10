@@ -8,24 +8,35 @@
 npm install vue-fuse
 ```
 
+### for Vue 2.x
 In main.js
 ```js
 import VueFuse from 'vue-fuse'
 
 Vue.use(VueFuse)
 ```
+
+### for Vue 3.x
+In main.js
+```js
+import { createApp } from 'vue'
+import VueFuse from 'vue-fuse'
+
+import App from './App.vue'
+
+
+createApp(App)
+  .component(VueFuse)
+  .mount('#app')
+```
+
 ## Full Fuse.js Documentation
 This is just a simple drop in component leverage Fuse.js. For complete documentation, check out [http://fusejs.io/](http://fusejs.io/)
-
-
-* `term` - (required) the search term or query that you will search by
-* `list` - (required) an array of items to search
-* `options` - (required) an object with fuse.js options. At minimum, you must provide an array of `keys`. Other options will default to the fuse.js defaults (see here: http://fusejs.io/)
 
 ## vue-fuse Component
 The `vue-fuse` component can be added any of your existing Vue components. It creates an `input` html element, and takes props (listed below) to execute a search. Search results are then returned via events.
 
-### Compoment Props
+### vue-fuse Compoment Props
 Most of the props line up with Fuse.js `options` with the defaults set to match the defaut Fuse.js behavior.
 <table>
   <tr>
@@ -133,5 +144,5 @@ export default {
 ```
 
 ### Accessing Results from vue-fuse Component
-Results are stored in the `result` data array of the `vue-fuse` component. The component `watch`es the `result` array and emits an event when the array is changed. This event is named `fuseResultsUpdated` and contains the result array. You can also name the event yourself (this is handy if you have more than one instance of `vue-fuse` in your application) by passing in a string to the `eventName` prop.
+Results are stored in the `result` data array of the `vue-fuse` component. The component `watch`es the `result` array and emits an event when the array is changed. This event is named `fuse-results` and contains the result array.
 
