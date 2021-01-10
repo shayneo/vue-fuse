@@ -1,11 +1,19 @@
 <template>
-  <div id="app" class="bg-teal-lightest relative">
+  <div
+    id="app"
+    class="bg-teal-lightest relative">
     <div class="px-4 py-3 flex items-center ">
       <a href="https://github.com/shayneo/vue-fuse">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
         </svg>
       </a>
-      <a href="http://fusejs.io/" class="fuse text-red">
+      <a
+        href="http://fusejs.io/"
+        class="fuse text-red">
         Fuse.js Library
       </a>
     </div>
@@ -13,32 +21,51 @@
       <h1 class="text-grey-darkest my-4">Vue Fuse Demo</h1>
       <div>
         <VueFuse
-          placeholder="Search Books of the Bible"
-          @fuse-results="handleResults"
           :list="books"
           :fuse-opts="options"
           :search="search"
+          :map-results="false"
+          placeholder="Search Books of the Bible"
           class="w-64 text-center h-8 border rounded-lg center"
+          @fuse-results="handleResults"
         />
         <p class="mt-2">Type in the input above to search</p>
-        <button class="bg-blue rounded p-2 text-white hover:bg-teal-dark" @click="advanced = !advanced">{{ advanced ? 'Hide Advanced Options' : 'Show Advanced Options'}}</button>
-        <div v-if="advanced" class="bg-teal p-2 mb-2">
+        <button
+          class="bg-blue rounded p-2 text-white hover:bg-teal-dark"
+          @click="advanced = !advanced">{{ advanced ? 'Hide Advanced Options' : 'Show Advanced Options' }}</button>
+        <div
+          v-if="advanced"
+          class="bg-teal p-2 mb-2">
           <h3>Advanced Options</h3>
           <p class="mt-2">changes to fuse-opts, search or list props trigger new searches.</p>
-          <p class="mt-2 mb-4">For a complete list of options visit <a href="http://fusejs.io/" class="fuse text-red underline">fusejs.io</a></p>
+          <p class="mt-2 mb-4">For a complete list of options visit <a
+            href="http://fusejs.io/"
+            class="fuse text-red underline">fusejs.io</a></p>
           Include Score
-          <input type="checkbox" v-model="options.includeScore">
+          <input
+            v-model="options.includeScore"
+            type="checkbox">
           <p class="text-sm mb-4">(changing fuse-opts on the fly will re-run the search)</p>
 
           Seach Prop
-          <input type="text" v-model="search" class="w-48">
+          <input
+            v-model="search"
+            type="text"
+            class="w-48">
           <p class="text-sm">Optionally, use the search prop to map data to the vue-fuse search input</p>
         </div>
       </div>
-      <div v-for="(book, i) in results" :key="i" class="rounded-lg bg-blue text-white p-4 m-4 flex text-left">
+      <div
+        v-for="(book, i) in results"
+        :key="i"
+        class="rounded-lg bg-blue text-white p-4 m-4 flex text-left">
         <div class="w-1/4">{{ book.item.name }}</div>
-        <div :class="options.includeScore ? 'w-1/2' : 'w-3/4'" class="px-2">{{ book.item.description }}</div>
-        <div v-if="options.includeScore" class="pl- w-1/4">{{ book.score }}</div>
+        <div
+          :class="options.includeScore ? 'w-1/2' : 'w-3/4'"
+          class="px-2">{{ book.item.description }}</div>
+        <div
+          v-if="options.includeScore"
+          class="pl- w-1/4">{{ book.score }}</div>
       </div>
     </div>
   </div>

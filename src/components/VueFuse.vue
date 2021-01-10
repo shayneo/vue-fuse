@@ -1,18 +1,15 @@
 <template>
-  <input type="search" v-model="value" :placeholder="placeholder">
+  <input
+    v-model="value"
+    :placeholder="placeholder"
+    type="search"
+  >
 </template>
 <script>
 import Fuse from 'fuse.js'
 
 export default {
   name: 'VueFuse',
-  data () {
-    return {
-      fuse: null,
-      value: '',
-      result: [],
-    }
-  },
   props: {
     placeholder: {
       type: String,
@@ -28,11 +25,23 @@ export default {
     },
     list: {
       type: Array,
+      default: () => [],
     },
     fuseOpts: {
       type: Object,
-      default: () => { return {} },
+      default: () => {},
     },
+    mapResults: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data () {
+    return {
+      fuse: null,
+      value: '',
+      result: [],
+    }
   },
   watch: {
     list () {
@@ -56,8 +65,14 @@ export default {
       this.$emit('fuse-results', this.result)
     },
   },
+  mounted () {
+    this.initFuse()
+  },
   methods: {
     defaultAllList (list) {
+      if (this.mapResults) {
+        return list
+      }
       return list.map((item, refIndex) => {
         return { item, refIndex }
       })
@@ -79,12 +94,10 @@ export default {
           this.result = []
         }
       } else {
-        this.result = this.fuse.search(this.value.trim())
+        const r = this.fuse.search(this.value.trim())
+        this.result = this.mapResults ? r.map(r => r.item) : r
       }
     },
-  },
-  mounted () {
-    this.initFuse()
   },
 }
 </script>

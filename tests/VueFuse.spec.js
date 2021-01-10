@@ -93,4 +93,24 @@ describe('VueFuse', () => {
     expect(wrapper.vm.value).toEqual('alex')
     expect(wrapper.vm.result[0]).toHaveProperty('score')
   })
+
+  it('should map the results', () => {
+    const wrapper = shallowMount(VueFuse, {
+      propsData: {
+        placeholder: 'Search for things',
+        list: list,
+        mapResults: true,
+        fuseOpts: {
+          keys: ['name'],
+          includeScore: true,
+        },
+      },
+    })
+    wrapper.setProps({
+      search: 'alex',
+    })
+    expect(wrapper.vm.value).toEqual('alex')
+    expect(wrapper.vm.result[0]).toHaveProperty('name')
+    expect(wrapper.vm.result[0].name).toEqual('alex')
+  })
 })

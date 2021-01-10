@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1609534790539" clover="3.2.0">
-  <project timestamp="1609534790539" name="All files">
-    <metrics statements="26" coveredstatements="22" conditionals="10" coveredconditionals="7" methods="12" coveredmethods="10" elements="48" coveredelements="39" complexity="0" loc="26" ncloc="26" packages="1" files="1" classes="1">
+<coverage generated="1610295794727" clover="3.2.0">
+  <project timestamp="1610295794727" name="All files">
+    <metrics statements="28" coveredstatements="24" conditionals="14" coveredconditionals="11" methods="14" coveredmethods="11" elements="56" coveredelements="46" complexity="0" loc="28" ncloc="28" packages="1" files="1" classes="1">
       <file name="VueFuse.vue" path="/Users/shayneosullivan/projects/vue-fuse/src/components/VueFuse.vue">
-        <metrics statements="26" coveredstatements="22" conditionals="10" coveredconditionals="7" methods="12" coveredmethods="10"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="39" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
+        <metrics statements="28" coveredstatements="24" conditionals="14" coveredconditionals="11" methods="14" coveredmethods="11"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="48" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="49" count="2" type="stmt"/>
-        <line num="52" count="6" type="stmt"/>
-        <line num="53" count="6" type="stmt"/>
-        <line num="56" count="10" type="stmt"/>
-        <line num="61" count="3" type="stmt"/>
-        <line num="62" count="15" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
-        <line num="68" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="71" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="76" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="77" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="83" count="6" type="stmt"/>
-        <line num="88" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="58" count="3" type="stmt"/>
+        <line num="61" count="7" type="stmt"/>
+        <line num="62" count="7" type="stmt"/>
+        <line num="65" count="12" type="stmt"/>
+        <line num="69" count="3" type="stmt"/>
+        <line num="73" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="76" count="3" type="stmt"/>
+        <line num="77" count="15" type="stmt"/>
+        <line num="81" count="3" type="stmt"/>
+        <line num="82" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="83" count="3" type="stmt"/>
+        <line num="85" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="90" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="91" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="97" count="7" type="stmt"/>
+        <line num="98" count="8" type="cond" truecount="2" falsecount="0"/>
       </file>
     </metrics>
   </project>

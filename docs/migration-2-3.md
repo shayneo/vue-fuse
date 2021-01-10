@@ -29,6 +29,9 @@ In the latest version of Fuse.js, results are returned like so:
 `item` represents the matching item from the list of results. `refIndex` refers to the
 index of the item in the original list that was search took place against.
 
+If you **don't** want the fuse info attached to the results you can set the `map-results` prop to `true`.
+This will return the `item` from the result payload only.
+
 ### 3. The global `$search` method is gone. 
 If you want to "roll your own" search method, just 
 import fuse.js directly into your component/setup function.
