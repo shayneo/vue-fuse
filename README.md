@@ -1,9 +1,12 @@
 # vue-fuse [![npm package](https://img.shields.io/npm/v/vue-fuse.svg)](https://www.npmjs.org/package/vue-fuse)
 
-> A Vue.js pluggin for fuzzy search library, Fuse.js
-> There are two ways to use this plugin. The `vue-fuse` component, or the `$search` method. Be sure to take a look at the documentation for both below.
+A Vue.js pluggin for fuzzy search library, Fuse.js. This plugin wraps Fuse.js in a convenient component with most of the boilerplate and props already set up. It's designed to enable you drop a client-side fuzzy search into your app without much work.
 
-## Install
+## Migrating from 2 to 3
+The 3.x version of `vue-fuse` is compatible with both Vue 2.x and Vue 3.x. However, there were some breaking changes made
+to better accomodate things going forward. For full details, check out the [migration guide](https://github.com/shayneo/vue-fuse/blob/master/docs/migration-2-3.md)
+
+## Installation
 ```bash
 npm install vue-fuse
 ```
