@@ -11,26 +11,18 @@ to better accomodate things going forward. For full details, check out the [migr
 npm install vue-fuse
 ```
 
-### for Vue 2.x
-In main.js
-```js
-import VueFuse from 'vue-fuse'
+VueFuse should be registered as a component within a parent component
 
-Vue.use(VueFuse)
 ```
-
-### for Vue 3.x
-In main.js
-```js
-import { createApp } from 'vue'
+<script>
 import VueFuse from 'vue-fuse'
 
-import App from './App.vue'
-
-
-createApp(App)
-  .component(VueFuse)
-  .mount('#app')
+export default {
+  components: {
+    VueFuse,
+  },
+}
+</script>
 ```
 
 ## Full Fuse.js Documentation
