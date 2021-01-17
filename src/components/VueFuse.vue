@@ -1,150 +1,87 @@
 <template>
-  <input type="search" v-model="value" :placeholder="placeholder">
+  <input
+    v-model="value"
+    :placeholder="placeholder"
+    type="search"
+  >
 </template>
 <script>
 import Fuse from 'fuse.js'
+
 export default {
   name: 'VueFuse',
+  props: {
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    search: {
+      type: String,
+      default: '',
+    },
+    defaultAll: {
+      type: Boolean,
+      default: true,
+    },
+    list: {
+      type: Array,
+      default: () => [],
+    },
+    fuseOpts: {
+      type: Object,
+      default: () => {},
+    },
+    mapResults: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data () {
     return {
       fuse: null,
       value: '',
-      result: []
+      result: [],
     }
   },
-  props: {
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    search: {
-      type: String,
-      default: ''
-    },
-    eventName: {
-      type: String,
-      default: 'fuseResultsUpdated'
-    },
-    inputChangeEventName: {
-      type: String,
-      default: 'fuseInputChanged'
-    },
-    defaultAll: {
-      type: Boolean,
-      default: true
-    },
-    list: {
-      type: Array
-    },
-    caseSensitive: {
-      type: Boolean,
-      default: false
-    },
-    includeScore: {
-      type: Boolean,
-      default: false
-    },
-    includeMatches: {
-      type: Boolean,
-      default: false
-    },
-    tokenize: {
-      type: Boolean,
-      default: false
-    },
-    tokenSeparator: {
-      type: RegExp,
-      default () {
-        return new RegExp(' ')
-      }
-    },
-    matchAllTokens: {
-      type: Boolean,
-      default: false
-    },
-    findAllMatches: {
-      type: Boolean,
-      default: false
-    },
-    id: {
-      type: String,
-      default: ''
-    },
-    shouldSort: {
-      type: Boolean,
-      default: true
-    },
-    threshold: {
-      type: Number,
-      default: 0.6
-    },
-    location: {
-      type: Number,
-      default: 0
-    },
-    distance: {
-      type: Number,
-      default: 100
-    },
-    maxPatternLength: {
-      type: Number,
-      default: 32
-    },
-    minMatchCharLength: {
-      type: Number,
-      default: 1
-    },
-    keys: {
-      type: Array
-    }
-  },
-  computed: {
-    options () {
-      var options = {
-        caseSensitive: this.caseSensitive,
-        includeScore: this.includeScore,
-        includeMatches: this.includeMatches,
-        tokenize: this.tokenize,
-        tokenSeparator: this.tokenSeparator,
-        matchAllTokens: this.matchAllTokens,
-        findAllMatches: this.findAllMatches,
-        shouldSort: this.shouldSort,
-        threshold: this.threshold,
-        location: this.location,
-        distance: this.distance,
-        maxPatternLength: this.maxPatternLength,
-        minMatchCharLength: this.minMatchCharLength,
-        keys: this.keys
-      }
-      if (this.id !== '') {
-        options.id = this.id
-      }
-      return options
-    }
-  },
+  emits: ['fuse-input', 'fuse-results'],
   watch: {
     list () {
-      this.fuse.list = this.list
+      if (this.fuse) {
+        this.fuse.setCollection(this.list)
+        this.fuseSearch()
+      }
+    },
+    fuseOpts () {
+      this.fuse.options = this.fuseOpts
       this.fuseSearch()
     },
     search () {
       this.value = this.search
     },
     value () {
-      this.$parent.$emit(this.inputChangeEventName, this.value)
-      this.$emit(this.inputChangeEventName, this.value)
+      this.$emit('fuse-input', this.value)
       this.fuseSearch()
     },
     result () {
-      this.$emit(this.eventName, this.result)
-      this.$parent.$emit(this.eventName, this.result)
-    }
+      this.$emit('fuse-results', this.result)
+    },
+  },
+  mounted () {
+    this.initFuse()
   },
   methods: {
+    defaultAllList (list) {
+      if (this.mapResults) {
+        return list
+      }
+      return list.map((item, refIndex) => {
+        return { item, refIndex }
+      })
+    },
     initFuse () {
-      this.fuse = new Fuse(this.list, this.options)
+      this.fuse = new Fuse(this.list, this.fuseOpts)
       if (this.defaultAll) {
-        this.result = this.list
+        this.result = this.defaultAllList(this.list)
       }
       if (this.search) {
         this.value = this.search
@@ -153,26 +90,15 @@ export default {
     fuseSearch () {
       if (this.value.trim() === '') {
         if (this.defaultAll) {
-          this.result = this.list
+          this.result = this.defaultAllList(this.list)
         } else {
           this.result = []
         }
       } else {
-        this.result = this.fuse.search(this.value.trim())
+        const r = this.fuse.search(this.value.trim())
+        this.result = this.mapResults ? r.map(r => r.item) : r
       }
-    }
+    },
   },
-  /**
-  * Vue 1.x
-  */
-  ready () {
-    this.initFuse()
-  },
-  /**
-  * Vue 2.x
-  */
-  mounted () {
-    this.initFuse()
-  }
 }
 </script>
