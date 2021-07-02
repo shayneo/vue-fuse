@@ -1,6 +1,6 @@
 {
   "name": "vue-fuse",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "license": "MIT",
@@ -23,8 +23,6 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "bundle": "vue-cli-service build --target lib --name vue-fuse ./src/index.js",
-    "roll": "rollup -c --environment BUILD:production",
     "test": "vue-cli-service test:unit --coverage",
     "lint": "vue-cli-service lint"
   },
@@ -33,23 +31,16 @@
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-plugin-unit-jest": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
-    "@vue/compiler-sfc": "^3.0.5",
     "@vue/eslint-config-standard": "^3.0.3",
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
-    "rollup": "^2.36.2",
-    "rollup-plugin-vue": "^6.0.0",
     "tailwindcss": "^0.6.5",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
   "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
+    "src/components/VueFuse.vue"
   ],
   "dependencies": {
     "fuse.js": "^6.4.4"
