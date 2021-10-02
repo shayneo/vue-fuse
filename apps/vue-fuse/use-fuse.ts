@@ -1,15 +1,22 @@
 import Fuse from 'fuse.js'
-import { reactive, watch, ref, Ref } from 'vue-demi'
+import { computed, reactive, watch, ref, Ref, ComputedRef } from 'vue-demi'
 
 export class VueFuse<T> {
   fuse: Fuse<T>
   results: Fuse.FuseResult<T>[]
   searchString: Ref<string>
+  noResults: ComputedRef<boolean>
   search: (search?: string | null) => void
   constructor(list: readonly T[], options?: Fuse.IFuseOptions<T>) {
     this.fuse = new Fuse(list, options)
     this.results = []
     this.searchString = ref('')
+    this.noResults = computed(() => {
+      if (this.results.length === 0 && this.searchString.value.length > 0) {
+        return true
+      }
+      return false
+    })
     this.search = (search?: string | null) => {
       if (!this.fuse) {
         return
