@@ -1,6 +1,8 @@
 {
   "name": "vue-fuse-monorepo",
+  "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "version": "0.0.0",
+  "license": "MIT",
   "workspaces": [
     "apps/*"
   ],
@@ -9,12 +11,23 @@
     "sync": "syncpack fix-mismatches && syncpack format"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.9.2",
     "syncpack": "^5.8.15",
     "typescript": "^4.4.3",
     "vue": "^3.2.16",
     "vue-tsc": "^0.3.0"
   },
+  "homepage": "https://github.com/shayneo/vue-fuse",
+  "keywords": [
+    "component",
+    "fuse",
+    "fuse.js",
+    "fuzzy search",
+    "search",
+    "vue",
+    "vue search"
+  ],
+  "packageManager": "yarn@3.0.2",
+  "repository": "shayneo/vue-fuse.git",
   "syncpack": {
     "sortAz": [
       "contributors",
@@ -39,6 +52,5 @@
       "files",
       "exports"
     ]
-  },
-  "packageManager": "yarn@3.0.2"
+  }
 }

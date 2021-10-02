@@ -654,6 +654,7 @@ __metadata:
   resolution: "demo@workspace:apps/demo"
   dependencies:
     "@vitejs/plugin-vue": ^1.9.2
+    fuse.js: ^6.4.6
     typescript: ^4.4.3
     vite: ^2.6.0
     vue: ^3.2.16
@@ -1004,6 +1005,13 @@ fsevents@~2.3.2:
   version: 1.1.1
   resolution: "function-bind@npm:1.1.1"
   checksum: b32fbaebb3f8ec4969f033073b43f5c8befbb58f1a79e12f1d7490358150359ebd92f49e72ff0144f65f2c48ea2a605bff2d07965f548f6474fd8efd95bf361a
+  languageName: node
+  linkType: hard
+
+"fuse.js@npm:^6.4.6":
+  version: 6.4.6
+  resolution: "fuse.js@npm:6.4.6"
+  checksum: 012dfacdc9a3c065d05d031b4eaaad7dd460f66dca100fcef182ed4e70a6b763b6753071702589d0b28def34b48ad077f01426d4ac1d75ef374564f6baa943fd
   languageName: node
   linkType: hard
 
@@ -2400,11 +2408,26 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
+"vue-demi@npm:latest":
+  version: 0.11.4
+  resolution: "vue-demi@npm:0.11.4"
+  peerDependencies:
+    "@vue/composition-api": ^1.0.0-rc.1
+    vue: ^3.0.0-0 || ^2.6.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  bin:
+    vue-demi-fix: bin/vue-demi-fix.js
+    vue-demi-switch: bin/vue-demi-switch.js
+  checksum: 794464387a6a031daa5cb8f751f1bd55f19a7dbe026385c8b0347a1b5c67bcc949c9f11c2b1bfc9e32a627b8e2caeb7fbff4b66c84d22ea625fbb77e57c6e075
+  languageName: node
+  linkType: hard
+
 "vue-fuse-monorepo@workspace:.":
   version: 0.0.0-use.local
   resolution: "vue-fuse-monorepo@workspace:."
   dependencies:
-    "@vitejs/plugin-vue": ^1.9.2
     syncpack: ^5.8.15
     typescript: ^4.4.3
     vue: ^3.2.16
@@ -2417,10 +2440,19 @@ typescript@^4.4.3:
   resolution: "vue-fuse@workspace:apps/vue-fuse"
   dependencies:
     "@vitejs/plugin-vue": ^1.9.2
+    fuse.js: ^6.4.6
     typescript: ^4.4.3
     vite: ^2.6.0
     vue: ^3.2.16
+    vue-demi: latest
     vue-tsc: ^0.3.0
+  peerDependencies:
+    "@vue/composition-api": ^1.0.0-rc.1
+    fuse.js: ^6.4.6
+    vue: ^2.0.0 || >=3.0.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
   languageName: unknown
   linkType: soft
 
