@@ -2,16 +2,17 @@
   "name": "vue-fuse",
   "version": "next",
   "scripts": {
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "dev": "vite",
     "serve": "vite preview"
   },
-  "main": "./index.ts",
-  "module": "./index.ts",
+  "files": ["dist"],
+  "main": "./dist/vue-fuse.umd.js",
+  "module": "./dist/vue-fuse.es.js",
   "exports": {
     ".": {
-      "import": "./index.ts",
-      "require": "./index.ts"
+      "import": "./dist/vue-fuse.es.js",
+      "require": "./dist/vue-fuse.umd.js"
     }
   },
   "dependencies": {

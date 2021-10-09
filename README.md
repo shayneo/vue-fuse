@@ -1,11 +1,64 @@
-# Vue 3 + Typescript + Vite
+# vue-fuse
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A fully typed, lightweight, and reactive wrapper for [Fuse.js](https://fusejs.io/) 
+fuzzy search lib.
 
-## Recommended IDE Setup
+## Vue 3 or Vue 2
+`vue-fuse` uses [vue-demi](https://www.npmjs.com/package/vue-demi) to offer
+Vue 3.X or Vue 2.X compatibility.
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+**Vue 2.X requires** [@vue/composition-api](https://www.npmjs.com/package/@vue/composition-api)
 
-## Type Support For `.vue` Imports in TS
+## Getting Started
+```
+npm i vue-fuse fuse.js
+```
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+```vue
+<template>
+  <input type="text" v-model="search">
+    <p v-if="noResults">Sorry, no results for {{search}}</p>
+    <div v-for="(r, i) in results" :key="i">
+      {{ r }}
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useVueFuse } from 'vue-fuse'
+
+export default defineComponent({
+  setup () {
+    const myList = ['aaaa', 'bbbb', 'cccc', 'abc', 'xyz']
+    const { search, results, noResults } = useVueFuse(myList)
+
+    return {
+      search,
+      results,
+      noResults,
+    }
+  }
+})
+</script>
+```
+
+## Typings
+A vue-fuse instance will detect the typed array of items
+needed to search. Thus, your results should be fully typed
+to match the type of the array items passed in.
+
+## Options
+`useVueFuse` and/or the `VueFuse` class constructor accept an optional
+second argument where you can pass in a [Fuse.js Options Object](https://fusejs.io/api/options.html)
+
+## results, resultsRaw, noResults
+```js
+const { results, resaltsRaw, noResults } = useVueFuse(['a', 'b', 'c'])
+```
+
+`results` - is an array containing a the subset of items you passed in that match the search
+`resultsRaw` - exposed the full result payload from Fuse.js, this contains things like the 
+original array index or the match "score".
+`noResults` - a computed boolean that will be `true` when there are no results, 
+but the search term is not empty
