@@ -22,8 +22,13 @@ import { books } from './books'
 export default defineComponent({
   name: 'App',
   setup () {
-    const fuse = useVueFuse(books, { keys: [{ name: 'name', weight: 2} , { name: 'description', weight: 1}]})
-    const { search, results, noResults } = fuse
+    const { search, results, noResults } = useVueFuse(books, { 
+      keys: [
+        { name: 'name', weight: 2 },
+        { name: 'description', weight: 1 }
+        ]
+    })
+
     return {
       search,
       results,

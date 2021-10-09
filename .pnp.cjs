@@ -45,6 +45,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/node", "npm:16.10.3"],
+            ["@vue/compiler-core", "npm:3.2.20"],
             ["syncpack", "npm:5.8.15"],
             ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"],
             ["vue", "npm:3.2.20"],
@@ -3738,6 +3740,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vue-fuse", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#workspace:apps/vue-fuse"],
             ["@types/fuse.js", null],
+            ["@types/node", "npm:16.10.3"],
             ["@types/vue", null],
             ["@types/vue__composition-api", null],
             ["@vitejs/plugin-vue", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:1.9.2"],
@@ -3763,6 +3766,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/vue-fuse/",
           "packageDependencies": [
             ["vue-fuse", "workspace:apps/vue-fuse"],
+            ["@types/node", "npm:16.10.3"],
             ["@vitejs/plugin-vue", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:1.9.2"],
             ["fuse.js", "npm:6.4.6"],
             ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"],
@@ -3779,6 +3783,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["vue-fuse-monorepo", "workspace:."],
+            ["@types/node", "npm:16.10.3"],
+            ["@vue/compiler-core", "npm:3.2.20"],
             ["syncpack", "npm:5.8.15"],
             ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"],
             ["vue", "npm:3.2.20"],

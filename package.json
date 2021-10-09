@@ -8,9 +8,12 @@
   ],
   "scripts": {
     "demo": "yarn workspace demo dev",
+    "build": "yarn workspace vue-fuse build",
     "sync": "syncpack fix-mismatches && syncpack format"
   },
   "devDependencies": {
+    "@types/node": "^16.10.3",
+    "@vue/compiler-core": "^3.2.20",
     "syncpack": "^5.8.15",
     "typescript": "^4.4.3",
     "vue": "^3.2.20",
