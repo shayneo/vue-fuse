@@ -1,10 +1,16 @@
 <template>
-  <h1>VueFuse Example</h1>
-  <input type="text" v-model="search">
-  <p v-if="noResults">Sorry, no results for {{search}}</p>
-  <div v-for="(book, i) in results" :key="i">
-    <div>{{book.name}}</div>
-    <div>{{book.description}}</div>
+  <div class="w-full mx-auto bg-gray-200 min-h-screen p-6 flex flex-col items-center">
+    <h1 class="text-center text-2xl">VueFuse Example</h1>
+
+    <input type="text" v-model="search" class="h-[48px]  px-4 py-1 rounded-md shadow-md my-4" placeholder="Search">
+    <div class="result-list flex flex-col gap-y-6">
+      <p v-if="noResults">Sorry, no results for {{search}}</p>
+      <p v-if="search === ''">Try searching books of the Bible via the input above.</p>
+      <div v-for="(book, i) in results" :key="i">
+        <div class="font-semibold text-lg">{{book.name}}</div>
+        <div class="font-sm">{{book.description}}</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,4 +33,8 @@ export default defineComponent({
 })
 </script>
 
-
+<style scoped>
+.result-list {
+  max-width: 450px;
+}
+</style>

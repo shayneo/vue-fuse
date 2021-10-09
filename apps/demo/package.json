@@ -8,11 +8,15 @@
   },
   "dependencies": {
     "fuse.js": "^6.4.6",
-    "vue": "^3.2.16",
+    "vue": "^3.2.20",
     "vue-fuse": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^16.10.3",
     "@vitejs/plugin-vue": "^1.9.2",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
     "typescript": "^4.4.3",
     "vite": "^2.6.0",
     "vue-tsc": "^0.3.0"
