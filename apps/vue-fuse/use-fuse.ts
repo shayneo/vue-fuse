@@ -1,18 +1,18 @@
 import Fuse from 'fuse.js'
-import { computed, reactive, watch, ref, Ref, ComputedRef } from 'vue-demi'
+import { computed, watch, ref, Ref, ComputedRef, toRefs , ToRefs} from 'vue-demi'
 
 export class VueFuse<T> {
-  fuse: Fuse<T>
-  results: Fuse.FuseResult<T>[]
-  searchString: Ref<string>
+  fuse: Ref<Fuse<T>>
+  results: Ref<Fuse.FuseResult<T>[]>
+  term: Ref<string>
   noResults: ComputedRef<boolean>
   search: (search?: string | null) => void
   constructor(list: readonly T[], options?: Fuse.IFuseOptions<T>) {
-    this.fuse = new Fuse(list, options)
-    this.results = []
-    this.searchString = ref('')
+    this.fuse = ref(new Fuse(list, options))
+    this.results = ref([])
+    this.term = ref('')
     this.noResults = computed(() => {
-      if (this.results.length === 0 && this.searchString.value.length > 0) {
+      if (this.results.value.length === 0 && this.term.value.length > 0) {
         return true
       }
       return false
@@ -22,16 +22,16 @@ export class VueFuse<T> {
         return
       }
       if (!this.search) {
-        this.results = []
+        this.results.value = []
         return
       }
-      this.results = this.fuse.search(search as string)
+      this.results.value = this.fuse.value.search(search as string)
     }
-    watch(this.searchString, this.search)
+    watch(this.term, this.search)
   }
 }
 
-export const useFuse = (list: readonly unknown[], options?: Fuse.IFuseOptions<unknown>) => {
-  const vf = new VueFuse(list, options)
-  return reactive(vf)
+export function useVueFuse<T>(list: readonly T[], options?: Fuse.IFuseOptions<T>): ToRefs<VueFuse<T>> {
+ const instance = new VueFuse(list, options)
+ return toRefs(instance)
 }

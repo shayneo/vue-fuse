@@ -1,17 +1,17 @@
 <template>
   <div>hello world</div>
-  <input type="text" v-model="fuse.searchString">
-  {{fuse.results }}
+  <input type="text" v-model="fuse.term.value">
+  {{fuse.results.value }}
 </template>
 
 <script lang="ts">
 import { defineComponent,ref, watchEffect  } from "vue";
-import { useFuse } from 'vue-fuse'
+import { useVueFuse } from 'vue-fuse'
 
 export default defineComponent({
   name: 'App',
   setup () {
-    const fuse = useFuse(['aaaa', 'bbbb', 'ccc'])
+    const fuse = useVueFuse(['aaa', 'bbb', 'ccc'])
     return {
       fuse,
     }
