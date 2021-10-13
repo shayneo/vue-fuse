@@ -4,4 +4,6 @@ jobs:
       - image: cimg/node:16.11.1
     steps:
       - checkout
-      - run: node --version
+      - run:
+          name: lint!
+          command: yarn lint

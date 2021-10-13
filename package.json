@@ -9,6 +9,8 @@
   "scripts": {
     "build": "yarn workspace vue-fuse build",
     "demo": "yarn workspace demo dev",
+    "build:demo": "yarn workspace demo build",
+    "lint": "eslint --fix .",
     "sync": "syncpack fix-mismatches && syncpack format"
   },
   "devDependencies": {
