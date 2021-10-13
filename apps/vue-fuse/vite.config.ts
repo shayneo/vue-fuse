@@ -1,6 +1,6 @@
 const path = require('path')
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'index.ts'),
       name: 'vue-fuse',
-      fileName: (format) => `vue-fuse.${format}.js`
+      fileName: (format) => `vue-fuse.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -20,9 +20,9 @@ export default defineConfig({
         // for externalized deps
         globals: {
           vue: 'Vue',
-          'fuse.js': 'Fuse'
-        }
-      }
-    }
-  }
+          'fuse.js': 'Fuse',
+        },
+      },
+    },
+  },
 })

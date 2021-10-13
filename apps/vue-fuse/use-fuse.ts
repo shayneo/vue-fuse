@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js'
-import { computed, watch, ref, Ref, ComputedRef } from 'vue-demi'
+import { computed, ComputedRef, Ref, ref, watch } from 'vue-demi'
 
 export class VueFuse<T> {
   fuse: Ref<Fuse<T>>
@@ -8,7 +8,7 @@ export class VueFuse<T> {
   search: Ref<string>
   noResults: ComputedRef<boolean>
   runSearch: (search?: string | null) => void
-  constructor(list: readonly T[], options?: Fuse.IFuseOptions<T>) {
+  constructor (list: readonly T[], options?: Fuse.IFuseOptions<T>) {
     this.fuse = ref(new Fuse(list, options))
     this.resultsRaw = ref([])
     this.search = ref('')
@@ -36,7 +36,7 @@ export class VueFuse<T> {
   }
 }
 
-export function useVueFuse<T>(list: readonly T[], options?: Fuse.IFuseOptions<T>): VueFuse<T> {
- return new VueFuse(list, options)
+export function useVueFuse<T> (list: readonly T[], options?: Fuse.IFuseOptions<T>): VueFuse<T> {
+  return new VueFuse(list, options)
 }
 
