@@ -6,6 +6,8 @@ fuzzy search lib.
 ## 4.X
 Version 4.X is a complete rewrite, intended to leverage Vue 3 (but still works with Vue 2 with the composition-api plugin).
 
+Check out the [3.x branch](https://github.com/shayneo/vue-fuse/tree/3.x) for older version, or look at release notes.
+
 ## Vue 3 or Vue 2
 `vue-fuse` uses [vue-demi](https://www.npmjs.com/package/vue-demi) to offer
 Vue 3.X or Vue 2.X compatibility.
