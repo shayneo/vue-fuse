@@ -4,7 +4,6 @@
   "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
   "license": "MIT",
-  "private": false,
   "homepage": "https://github.com/shayneo/vue-fuse",
   "keywords": [
     "vue",
@@ -25,7 +24,9 @@
     "dev": "vite",
     "serve": "vite preview"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/vue-fuse.umd.js",
   "module": "./dist/vue-fuse.es.js",
   "exports": {
@@ -48,8 +49,8 @@
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-rc.1",
-    "vue": "^2.0.0 || >=3.0.0",
-    "fuse.js": "^6.4.6"
+    "fuse.js": "^6.4.6",
+    "vue": "^2.0.0 || >=3.0.0"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
