@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "arcanis.vscode-zipfs",
+    "dbaeumer.vscode-eslint",
+    "octref.vetur",
+    "bradlc.vscode-tailwindcss"
+  ]
+}

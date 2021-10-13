@@ -1,18 +1,57 @@
+
 module.exports = {
-  root: true,
-  env: {
+  'env': {
+    'browser': true,
+    'es2021': true,
     node: true,
   },
   'extends': [
-    'plugin:vue/recommended',
-    '@vue/standard',
+    'eslint:recommended',
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'comma-dangle': ['error', 'always-multiline'],
+  parser: 'vue-eslint-parser',
+  'parserOptions': {
+    'ecmaVersion': 12,
+    'parser': '@typescript-eslint/parser',
+    'sourceType': 'module',
   },
-  parserOptions: {
-    parser: 'babel-eslint',
+  'plugins': [
+    'vue',
+    '@typescript-eslint',
+    'simple-import-sort',
+  ],
+  'rules': {
+    '@typescript-eslint/indent': [
+      'error',
+      2,
+    ],
+    'linebreak-style': [
+      'error',
+      'unix',
+    ],
+    'quotes': [
+      'error',
+      'single',
+    ],
+    'semi': [
+      'error',
+      'never',
+    ],
+    'brace-style': ['error', '1tbs'],
+    'comma-dangle': ['error', 'always-multiline'],
+    'comma-spacing': 2,
+    complexity: ['warn', { max: 8 }],
+    curly: ['error', 'all'],
+    'keyword-spacing': ['error', { before: true, after: true }],
+    'object-curly-spacing': ['error', 'always'],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'sort-imports': 'off',
+    'space-before-blocks': ['error', 'always'],
+    'space-before-function-paren': ['error', 'always'],
+    'import/order': 'off',
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/type-annotation-spacing': 2,
   },
 }

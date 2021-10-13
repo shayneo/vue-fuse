@@ -1,48 +1,67 @@
 {
-  "name": "vue-fuse",
-  "version": "3.0.2",
-  "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
+  "name": "vue-fuse-monorepo",
   "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
+  "version": "0.0.0",
   "license": "MIT",
-  "main": "src/components/VueFuse.vue",
-  "private": false,
-  "homepage": "https://github.com/shayneo/vue-fuse",
-  "keywords": [
-    "vue",
-    "component",
-    "fuse.js",
-    "fuse",
-    "search",
-    "fuzzy search",
-    "vue search"
+  "workspaces": [
+    "apps/*"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shayneo/vue-fuse.git"
-  },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test": "vue-cli-service test:unit --coverage",
-    "lint": "vue-cli-service lint"
+    "build": "yarn workspace vue-fuse build",
+    "demo": "yarn workspace demo dev",
+    "build:demo": "yarn workspace demo build",
+    "lint": "eslint --fix .",
+    "sync": "syncpack fix-mismatches && syncpack format"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.1",
-    "@vue/cli-plugin-eslint": "^3.0.1",
-    "@vue/cli-plugin-unit-jest": "^3.0.1",
-    "@vue/cli-service": "^3.0.1",
-    "@vue/eslint-config-standard": "^3.0.3",
-    "@vue/test-utils": "^1.0.0-beta.20",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.0.1",
-    "tailwindcss": "^0.6.5",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "@types/node": "^16.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "@vue/compiler-core": "^3.2.20",
+    "eslint": "^7.24.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "syncpack": "^5.8.15",
+    "typescript": "^4.4.3",
+    "vue": "^3.2.20",
+    "vue-eslint-parser": "^7.6.0",
+    "vue-tsc": "^0.3.0"
   },
-  "files": [
-    "src/components/VueFuse.vue"
+  "homepage": "https://github.com/shayneo/vue-fuse",
+  "keywords": [
+    "component",
+    "fuse",
+    "fuse.js",
+    "fuzzy search",
+    "search",
+    "vue",
+    "vue search"
   ],
-  "dependencies": {
-    "fuse.js": "^6.4.4"
+  "packageManager": "yarn@3.0.2",
+  "repository": "shayneo/vue-fuse.git",
+  "syncpack": {
+    "sortAz": [
+      "contributors",
+      "dependencies",
+      "devDependencies",
+      "keywords",
+      "peerDependencies",
+      "scripts"
+    ],
+    "sortFirst": [
+      "name",
+      "author",
+      "version",
+      "license",
+      "description",
+      "private",
+      "workspaces",
+      "scripts",
+      "main",
+      "module",
+      "bin",
+      "files",
+      "exports"
+    ]
   }
 }

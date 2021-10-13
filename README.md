@@ -1,143 +1,122 @@
-# vue-fuse [![npm package](https://img.shields.io/npm/v/vue-fuse.svg)](https://www.npmjs.org/package/vue-fuse)
+# vue-fuse
 
-A Vue.js pluggin for fuzzy search library, Fuse.js. This plugin wraps Fuse.js in a convenient component with most of the boilerplate and props already set up. It's designed to enable you drop a client-side fuzzy search into your app without much work.
+A fully typed, lightweight, and reactive interface for [Fuse.js](https://fusejs.io/)
+fuzzy search lib.
 
-## Migrating from 2 to 3
-The 3.x version of `vue-fuse` is compatible with both Vue 2.x and Vue 3.x. However, there were some breaking changes made
-to better accomodate things going forward. For full details, check out the [migration guide](https://github.com/shayneo/vue-fuse/blob/master/docs/migration-2-3.md)
+## 4.X
+Version 4.X is a complete rewrite, intended to leverage Vue 3 (but still works with Vue 2 with the composition-api plugin).
 
-## Installation
-```bash
-npm install vue-fuse
+Check out the [3.x branch](https://github.com/shayneo/vue-fuse/tree/3.x) for older version, or look at release notes.
+
+## Vue 3 or Vue 2
+`vue-fuse` uses [vue-demi](https://www.npmjs.com/package/vue-demi) to offer
+Vue 3.X or Vue 2.X compatibility.
+
+**Vue 2.X requires** [@vue/composition-api](https://www.npmjs.com/package/@vue/composition-api)
+
+## Getting Started
+```
+npm i vue-fuse fuse.js
 ```
 
-VueFuse should be registered as a component within a parent component
-
-```
-<script>
-import VueFuse from 'vue-fuse'
-
-export default {
-  components: {
-    VueFuse,
-  },
-}
-</script>
-```
-
-## Full Fuse.js Documentation
-This is just a simple drop in component leverage Fuse.js. For complete documentation, check out [http://fusejs.io/](http://fusejs.io/)
-
-## vue-fuse Component
-The `vue-fuse` component can be added any of your existing Vue components. It creates an `input` html element, and takes props (listed below) to execute a search. Search results are then returned via events.
-
-### vue-fuse Compoment Props
-Most of the props line up with Fuse.js `options` with the defaults set to match the defaut Fuse.js behavior.
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Desc</th>
-    <th>Type</th>
-    <th>Default values</th>
-  </tr>
-  <tr>
-    <td>placeholder</td>
-    <td>placeholder text for the input</td>
-    <td>String</td>
-    <td>`""`</td>
-  </tr>
-  <tr>
-    <td>defaultAll</td>
-    <td>If true, results will inclide ALL items in list when search is null. If false, results will inclide no items when search is null.</td>
-    <td>Boolean</td>
-    <td>true</td>
-  </tr>
-  <tr>
-    <td>list</td>
-    <td>The array of items that Fuse will search</td>
-    <td>Array</td>
-    <td>[]</td>
-  </tr>
-  <tr>
-    <td>fuseOpts</td>
-    <td>
-      The fuse.js configuration object.
-    </td>
-    <td>Oject, required</td>
-    <td>{}</td>
-  </tr>
-  <tr>
-    <td>defaultAll</td>
-    <td>If true, results will inclide ALL items in list when search is null. If false, results will inclide no items when search is null.</td>
-    <td>Boolean</td>
-    <td>true</td>
-  </tr>
-  <tr>
-    <td>mapResults</td>
-    <td>If true, search meta info (such as score and original index) will be removed from the result payload, and only the item from the list will be returned.</td>
-    <td>Boolean</td>
-    <td>false</td>
-  </tr>
-  <tr>
-    <td>search</td>
-    <td>Binding to the search prop will allow you to map data directly to the input</td>
-    <td>String</td>
-    <td>""</td>
-  </tr>
-</table>
-
-### Component  Demo / Example
-* [LIVE DEMO](https://vue-fuse-demo.netlify.com/)
-* [DEMO SOURCE](https://github.com/shayneo/vue-fuse/blob/master/src/App.vue)
-
-```
+```vue
 <template>
-  <VueFuse :keys="keys" :list="bikes" :defaultAll="false" />
+  <input type="text" v-model="search">
+    <p v-if="noResults">Sorry, no results for {{search}}</p>
+    <div v-for="(r, i) in results" :key="i">
+      {{ r }}
+    </div>
+  </div>
 </template>
 
-<script>
-export default {
-  data () {
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { useVueFuse } from 'vue-fuse'
+
+export default defineComponent({
+  setup () {
+    const myList = ['aaaa', 'bbbb', 'cccc', 'abc', 'xyz']
+    const { search, results, noResults } = useVueFuse(myList)
+
     return {
-      bikes: [
-        {
-          brand: "Schwinn",
-          model: {
-            name: "Classic",
-            id: "1345"
-          }
-        },
-        {
-          brand: "Red Line",
-          model: {
-            name: "Flight",
-            id: "5430"
-          }
-        },
-        {
-          brand: "Hoffman",
-          model: {
-            name: "Condore",
-            id: "0543"
-          }
-        },
-        {
-          brand: "Tribe",
-          model: {
-            name: "CRMO",
-            id: "0432"
-          }
-        }
-      ],
-      opts: {
-        keys: ["brand", "model.name", "model.id"]
-      }
+      search,
+      results,
+      noResults,
     }
   }
-}
+})
 </script>
 ```
 
-### Accessing Results from vue-fuse Component
-Results are stored in the `result` data array of the `vue-fuse` component. The component `watch`es the `result` array and emits an event when the array is changed. This event is named `fuse-results` and contains the result array.
+## Typings
+A vue-fuse instance will detect the typed array of items
+needed to search. Thus, your results should be fully typed
+to match the type of the array items passed in.
 
+## Options
+`useVueFuse` and/or the `VueFuse` class constructor accept an optional
+second argument where you can pass in a [Fuse.js Options Object](https://fusejs.io/api/options.html)
+
+## results, resultsRaw, noResults
+```js
+const { results, resaltsRaw, noResults } = useVueFuse(['a', 'b', 'c'])
+```
+
+`results` - is an array containing a the subset of items you passed in that match the search
+`resultsRaw` - exposed the full result payload from Fuse.js, this contains things like the
+original array index or the match "score".
+`noResults` - a computed boolean that will be `true` when there are no results,
+but the search term is not empty
+
+## Searching Array of Objects
+The examples above include simple arrays of strings, but you'll probably want to
+search accross more complex data structures. Fuse.js supports this by allowing you to
+pass [keys](https://fusejs.io/api/options.html#keys) into the search options.
+
+so if you have an array of objects like this:
+```js
+const bikes = [
+  {
+    brand: 'Santa Cruz',
+    model: '5010',
+    year: 2021,
+    wheelSize: 27.5,
+  },
+  {
+    brand: 'Canyon',
+    model: 'Neuron',
+    year: 2021,
+    wheelSize: 29,
+  }
+]
+```
+
+To search by brand and model, you could set your config to:
+```js
+{
+  keys: ['brand', 'model']
+}
+```
+
+You can also weight each key differently
+```js
+{
+  keys: [
+    {
+      name: 'brand',
+      weight: 3,
+    },
+    {
+      name: 'model',
+      weight: 1,
+    }
+  ]
+}
+```
+
+You can also search nested keys by chaining the property names
+```js
+{
+  keys: ['foo', 'bar.baz.buzz']
+}
+```
