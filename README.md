@@ -3,6 +3,9 @@
 A fully typed, lightweight, and reactive wrapper for [Fuse.js](https://fusejs.io/) 
 fuzzy search lib.
 
+## 4.X
+Version 4.X is a complete rewrite, intended to leverage Vue 3 (but still works with Vue 2 with the composition-api plugin).
+
 ## Vue 3 or Vue 2
 `vue-fuse` uses [vue-demi](https://www.npmjs.com/package/vue-demi) to offer
 Vue 3.X or Vue 2.X compatibility.

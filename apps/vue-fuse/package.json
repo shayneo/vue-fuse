@@ -1,6 +1,25 @@
 {
   "name": "vue-fuse",
-  "version": "next",
+  "version": "4.0.0-beta0",
+  "description": "A Vue.js pluggin for fuzzy search library, Fuse.js",
+  "author": "Shayne O'Sullivan <shayneosull@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/shayneo/vue-fuse",
+  "keywords": [
+    "vue",
+    "vue fuse",
+    "fuse.js",
+    "fuse",
+    "search",
+    "fuzzy search",
+    "vue search",
+    "fuzzy search vue"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shayneo/vue-fuse.git"
+  },
   "scripts": {
     "build": "vite build",
     "dev": "vite",
@@ -29,8 +48,8 @@
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-rc.1",
-    "fuse.js": "^6.4.6",
-    "vue": "^3.2.20"
+    "vue": "^2.0.0 || >=3.0.0",
+    "fuse.js": "^6.4.6"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {
