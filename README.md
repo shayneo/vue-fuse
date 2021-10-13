@@ -113,3 +113,10 @@ You can also weight each key differently
   ]
 }
 ```
+
+You can also search nested keys by chaining the property names
+```js
+{
+  keys: ['foo', 'bar.baz.buzz']
+}
+```
