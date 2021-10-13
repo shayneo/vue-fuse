@@ -28,7 +28,7 @@ npm i vue-fuse fuse.js
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 import { useVueFuse } from 'vue-fuse'
 
 export default defineComponent({
@@ -78,13 +78,13 @@ const bikes = [
     brand: 'Santa Cruz',
     model: '5010',
     year: 2021,
-    wheelSize: 27.5
+    wheelSize: 27.5,
   },
   {
     brand: 'Canyon',
     model: 'Neuron',
     year: 2021,
-    wheelSize: 29
+    wheelSize: 29,
   }
 ]
 ```
@@ -102,11 +102,11 @@ You can also weight each key differently
   keys: [
     {
       name: 'brand',
-      weight: 3
+      weight: 3,
     },
     {
       name: 'model',
-      weight: 1
+      weight: 1,
     }
   ]
 }
