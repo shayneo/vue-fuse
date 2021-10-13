@@ -1,6 +1,6 @@
 # vue-fuse
 
-A fully typed, lightweight, and reactive wrapper for [Fuse.js](https://fusejs.io/)
+A fully typed, lightweight, and reactive interface for [Fuse.js](https://fusejs.io/)
 fuzzy search lib.
 
 ## 4.X
