@@ -7,12 +7,14 @@
     "apps/*"
   ],
   "scripts": {
-    "demo": "yarn workspace demo dev",
     "build": "yarn workspace vue-fuse build",
+    "demo": "yarn workspace demo dev",
     "sync": "syncpack fix-mismatches && syncpack format"
   },
   "devDependencies": {
     "@types/node": "^16.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "@vue/compiler-core": "^3.2.20",
     "eslint": "^7.24.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
@@ -20,6 +22,7 @@
     "syncpack": "^5.8.15",
     "typescript": "^4.4.3",
     "vue": "^3.2.20",
+    "vue-eslint-parser": "^7.6.0",
     "vue-tsc": "^0.3.0"
   },
   "homepage": "https://github.com/shayneo/vue-fuse",
