@@ -3,6 +3,8 @@
 A fully typed, lightweight, and reactive interface for [Fuse.js](https://fusejs.io/)
 fuzzy search lib.
 
+[Live Demo](https://vue-fuse-demo.netlify.app/)
+
 ## 4.X
 Version 4.X is a complete rewrite, intended to leverage Vue 3 (but still works with Vue 2 with the composition-api plugin).
 
