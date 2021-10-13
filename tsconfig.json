@@ -11,5 +11,5 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"]
   },
-  "include": ["apps/**/*.ts", "apps/**/*.d.ts", "apps/**/*.tsx", "apps/**/*.vue"]
+  "include": ["**/*.ts","apps/**/*.ts", "apps/**/*.d.ts", "apps/**/*.tsx", "apps/**/*.vue"]
 }
