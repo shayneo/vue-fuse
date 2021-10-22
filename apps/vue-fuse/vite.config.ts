@@ -1,10 +1,14 @@
 const path = require('path')
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    dts(),
+  ],
   optimizeDeps: {
     exclude: ['vue-demi'],
   },
