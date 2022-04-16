@@ -41,7 +41,7 @@ import { Book, books } from './books'
 export default defineComponent({
   name: 'App',
   setup () {
-    const list: Ref<Array<Book>> = ref([])
+    const list: Ref<null | Array<Book>> = ref(null)
     setTimeout(() => {
       list.value = books
     }, 1000)

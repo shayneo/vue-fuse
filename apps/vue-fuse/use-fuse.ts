@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js'
 import { computed, ComputedRef, Ref, ref, watch } from 'vue-demi'
 
-type MaybeReactiveList<T> = ComputedRef<Array<T>> | Array<T> | Ref<Array<T>>
+type MaybeReactiveList<T> = ComputedRef<Array<T>> | Array<T> | Ref<Array<T>> | Ref<null> | Ref<null | Array<T>>
 
 export class VueFuse<T> {
   fuse: Ref<Fuse<T>>
@@ -32,9 +32,11 @@ export class VueFuse<T> {
     let localArray: Array<T> = []
     if (Array.isArray(list)) {
       localArray = list
-    } else {
-      localArray = list.value
-      watch(list, this.loadItems)
+    } else if (list) {
+      localArray = list.value ?? []
+      watch(list, () => {
+        this.loadItems(list.value ?? [])
+      })
     }
     this.fuse = ref(new Fuse(localArray, options))
 
