@@ -9,7 +9,7 @@
   "dependencies": {
     "fuse.js": "^6.4.6",
     "vue": "^3.2.20",
-    "vue-fuse": "workspace:*"
+    "vue-fuse": "4.1.0"
   },
   "devDependencies": {
     "@types/node": "^16.10.3",
