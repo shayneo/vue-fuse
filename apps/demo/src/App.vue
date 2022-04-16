@@ -33,15 +33,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, Ref, ref } from 'vue'
 import { useVueFuse } from 'vue-fuse'
 
-import { books } from './books'
+import { Book, books } from './books'
 
 export default defineComponent({
   name: 'App',
   setup () {
-    const { search, results, noResults } = useVueFuse(books, {
+    const list: Ref<Array<Book>> = ref([])
+    setTimeout(() => {
+      list.value = books
+    }, 1000)
+    const { search, results, noResults } = useVueFuse(list, {
       keys: [
         { name: 'name', weight: 2 },
         { name: 'description', weight: 1 },
