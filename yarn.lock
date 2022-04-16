@@ -1186,7 +1186,7 @@ __metadata:
     typescript: ^4.4.3
     vite: ^2.6.0
     vue: ^3.2.20
-    vue-fuse: 4.0.0
+    vue-fuse: "workspace:*"
     vue-tsc: ^0.3.0
   languageName: unknown
   linkType: soft
@@ -4164,23 +4164,7 @@ typescript@^4.4.3:
   languageName: unknown
   linkType: soft
 
-"vue-fuse@npm:4.0.0":
-  version: 4.0.0
-  resolution: "vue-fuse@npm:4.0.0"
-  dependencies:
-    vue-demi: ^0.11.4
-  peerDependencies:
-    "@vue/composition-api": ^1.0.0-rc.1
-    fuse.js: ^6.4.6
-    vue: ^3.2.20
-  peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
-  checksum: f0f2b07f1a4d7b21b110260c6b489c77990fc2632643a8361896d82ca56594e6e21c0ee6655b81c52ee2f742b0ad7148c9a3bb6d2aadd62284d19c2d7325822b
-  languageName: node
-  linkType: hard
-
-"vue-fuse@workspace:apps/vue-fuse":
+"vue-fuse@workspace:*, vue-fuse@workspace:apps/vue-fuse":
   version: 0.0.0-use.local
   resolution: "vue-fuse@workspace:apps/vue-fuse"
   dependencies:

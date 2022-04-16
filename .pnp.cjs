@@ -35,7 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)|$))$)",
     "fallbackExclusionList": [
       ["demo", ["workspace:apps/demo"]],
-      ["vue-fuse", ["workspace:apps/vue-fuse"]],
+      ["vue-fuse", ["virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#workspace:apps/vue-fuse", "workspace:apps/vue-fuse"]],
       ["vue-fuse-monorepo", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -1487,7 +1487,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"],
             ["vite", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:2.6.2"],
             ["vue", "npm:3.2.20"],
-            ["vue-fuse", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:4.0.0"],
+            ["vue-fuse", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#workspace:apps/vue-fuse"],
             ["vue-tsc", "virtual:23c5722036650ce8d8b83988a0b641ffdde8e42eae3c4a94a08d5659574e42518c33500db4a7b509492258d485fc70bd7edaa86512c1f994c1b6a637f70264e5#npm:0.3.0"]
           ],
           "linkType": "SOFT",
@@ -4629,10 +4629,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:ecc90904570e48e4524d6d91f3df8bfd9b95faaa068a744e767f43798d436fae47daf8768b42e80128737b9a0f6cea3cafe3d41dfcf81f54b56c2b402bfbf8db#npm:0.9.2", {
-          "packageLocation": "./.yarn/__virtual__/vite-plugin-dts-virtual-4ae2e62ed1/0/cache/vite-plugin-dts-npm-0.9.2-2bbee8cfec-89b35b7adb.zip/node_modules/vite-plugin-dts/",
+        ["virtual:eef79ac8f06519ecffaefa5e7916e4d8a174889cb3d57a90a20227f0595f8e470c0ffe2024efafd56ba2ba37f6371c7ff177f941ec7c1bc86b5d8b6035246949#npm:0.9.2", {
+          "packageLocation": "./.yarn/__virtual__/vite-plugin-dts-virtual-1c255f886f/0/cache/vite-plugin-dts-npm-0.9.2-2bbee8cfec-89b35b7adb.zip/node_modules/vite-plugin-dts/",
           "packageDependencies": [
-            ["vite-plugin-dts", "virtual:ecc90904570e48e4524d6d91f3df8bfd9b95faaa068a744e767f43798d436fae47daf8768b42e80128737b9a0f6cea3cafe3d41dfcf81f54b56c2b402bfbf8db#npm:0.9.2"],
+            ["vite-plugin-dts", "virtual:eef79ac8f06519ecffaefa5e7916e4d8a174889cb3d57a90a20227f0595f8e470c0ffe2024efafd56ba2ba37f6371c7ff177f941ec7c1bc86b5d8b6035246949#npm:0.9.2"],
             ["@types/vite", null],
             ["fast-glob", "npm:3.2.7"],
             ["fs-extra", "npm:10.0.0"],
@@ -4848,16 +4848,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["vue-demi", [
         ["npm:0.11.4", {
-          "packageLocation": "./.yarn/unplugged/vue-demi-virtual-dfd4d20889/node_modules/vue-demi/",
+          "packageLocation": "./.yarn/unplugged/vue-demi-virtual-f5c7a7feca/node_modules/vue-demi/",
           "packageDependencies": [
             ["vue-demi", "npm:0.11.4"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:e1934ff5be839c3e04c2d01522b6b442fc6a409489b4dca5c1bb8c255a98457a3938599ea9c4fae32d04fce81d627c9da680a6fea758d5095ea0028a638e6441#npm:0.11.4", {
-          "packageLocation": "./.yarn/unplugged/vue-demi-virtual-dfd4d20889/node_modules/vue-demi/",
+        ["virtual:eef79ac8f06519ecffaefa5e7916e4d8a174889cb3d57a90a20227f0595f8e470c0ffe2024efafd56ba2ba37f6371c7ff177f941ec7c1bc86b5d8b6035246949#npm:0.11.4", {
+          "packageLocation": "./.yarn/unplugged/vue-demi-virtual-f5c7a7feca/node_modules/vue-demi/",
           "packageDependencies": [
-            ["vue-demi", "virtual:e1934ff5be839c3e04c2d01522b6b442fc6a409489b4dca5c1bb8c255a98457a3938599ea9c4fae32d04fce81d627c9da680a6fea758d5095ea0028a638e6441#npm:0.11.4"],
+            ["vue-demi", "virtual:eef79ac8f06519ecffaefa5e7916e4d8a174889cb3d57a90a20227f0595f8e470c0ffe2024efafd56ba2ba37f6371c7ff177f941ec7c1bc86b5d8b6035246949#npm:0.11.4"],
             ["@types/vue", null],
             ["@types/vue__composition-api", null],
             ["@vue/composition-api", null],
@@ -4902,24 +4902,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["vue-fuse", [
-        ["npm:4.0.0", {
-          "packageLocation": "./.yarn/cache/vue-fuse-npm-4.0.0-59e1e25b23-f0f2b07f1a.zip/node_modules/vue-fuse/",
+        ["virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#workspace:apps/vue-fuse", {
+          "packageLocation": "./.yarn/__virtual__/vue-fuse-virtual-eef79ac8f0/1/apps/vue-fuse/",
           "packageDependencies": [
-            ["vue-fuse", "npm:4.0.0"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:4.0.0", {
-          "packageLocation": "./.yarn/__virtual__/vue-fuse-virtual-e1934ff5be/0/cache/vue-fuse-npm-4.0.0-59e1e25b23-f0f2b07f1a.zip/node_modules/vue-fuse/",
-          "packageDependencies": [
-            ["vue-fuse", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:4.0.0"],
+            ["vue-fuse", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#workspace:apps/vue-fuse"],
             ["@types/fuse.js", null],
+            ["@types/node", "npm:16.10.3"],
             ["@types/vue", null],
             ["@types/vue__composition-api", null],
+            ["@vitejs/plugin-vue", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:1.9.2"],
             ["@vue/composition-api", null],
             ["fuse.js", "npm:6.4.6"],
+            ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"],
+            ["vite", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:2.6.2"],
+            ["vite-plugin-dts", "virtual:eef79ac8f06519ecffaefa5e7916e4d8a174889cb3d57a90a20227f0595f8e470c0ffe2024efafd56ba2ba37f6371c7ff177f941ec7c1bc86b5d8b6035246949#npm:0.9.2"],
             ["vue", "npm:3.2.20"],
-            ["vue-demi", "virtual:e1934ff5be839c3e04c2d01522b6b442fc6a409489b4dca5c1bb8c255a98457a3938599ea9c4fae32d04fce81d627c9da680a6fea758d5095ea0028a638e6441#npm:0.11.4"]
+            ["vue-demi", "virtual:eef79ac8f06519ecffaefa5e7916e4d8a174889cb3d57a90a20227f0595f8e470c0ffe2024efafd56ba2ba37f6371c7ff177f941ec7c1bc86b5d8b6035246949#npm:0.11.4"],
+            ["vue-tsc", "virtual:23c5722036650ce8d8b83988a0b641ffdde8e42eae3c4a94a08d5659574e42518c33500db4a7b509492258d485fc70bd7edaa86512c1f994c1b6a637f70264e5#npm:0.3.0"]
           ],
           "packagePeers": [
             "@types/fuse.js",
@@ -4929,7 +4928,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "fuse.js",
             "vue"
           ],
-          "linkType": "HARD",
+          "linkType": "SOFT",
         }],
         ["workspace:apps/vue-fuse", {
           "packageLocation": "./apps/vue-fuse/",
@@ -4940,9 +4939,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.4.6"],
             ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"],
             ["vite", "virtual:4844e5daff3cdacbe824d4f38e5b46ad1a8b3a6063f0e278e3970230ced923850cc1edd66b900b9e88b96ec427ca0939ebb2ef63a4036d45927ba8b7cff18fa0#npm:2.6.2"],
-            ["vite-plugin-dts", "virtual:ecc90904570e48e4524d6d91f3df8bfd9b95faaa068a744e767f43798d436fae47daf8768b42e80128737b9a0f6cea3cafe3d41dfcf81f54b56c2b402bfbf8db#npm:0.9.2"],
+            ["vite-plugin-dts", "virtual:eef79ac8f06519ecffaefa5e7916e4d8a174889cb3d57a90a20227f0595f8e470c0ffe2024efafd56ba2ba37f6371c7ff177f941ec7c1bc86b5d8b6035246949#npm:0.9.2"],
             ["vue", "npm:3.2.20"],
-            ["vue-demi", "virtual:e1934ff5be839c3e04c2d01522b6b442fc6a409489b4dca5c1bb8c255a98457a3938599ea9c4fae32d04fce81d627c9da680a6fea758d5095ea0028a638e6441#npm:0.11.4"],
+            ["vue-demi", "virtual:eef79ac8f06519ecffaefa5e7916e4d8a174889cb3d57a90a20227f0595f8e470c0ffe2024efafd56ba2ba37f6371c7ff177f941ec7c1bc86b5d8b6035246949#npm:0.11.4"],
             ["vue-tsc", "virtual:23c5722036650ce8d8b83988a0b641ffdde8e42eae3c4a94a08d5659574e42518c33500db4a7b509492258d485fc70bd7edaa86512c1f994c1b6a637f70264e5#npm:0.3.0"]
           ],
           "linkType": "SOFT",
