@@ -23,7 +23,8 @@ npm i vue-fuse fuse.js
 
 ```vue
 <template>
-  <input type="text" v-model="search">
+  <div>
+    <input type="text" v-model="search">
     <p v-if="noResults">Sorry, no results for {{search}}</p>
     <div v-for="(r, i) in results" :key="i">
       {{ r }}
