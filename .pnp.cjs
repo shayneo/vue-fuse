@@ -1509,7 +1509,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["detective", "npm:5.2.0"],
             ["acorn-node", "npm:1.8.2"],
             ["defined", "npm:1.0.0"],
-            ["minimist", "npm:1.2.5"]
+            ["minimist", "npm:1.2.8"]
           ],
           "linkType": "HARD",
         }]
@@ -3087,10 +3087,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["minimist", [
-        ["npm:1.2.5", {
-          "packageLocation": "./.yarn/cache/minimist-npm-1.2.5-ced0e1f617-86706ce5b3.zip/node_modules/minimist/",
+        ["npm:1.2.8", {
+          "packageLocation": "./.yarn/cache/minimist-npm-1.2.8-d7af7b1dce-75a6d645fb.zip/node_modules/minimist/",
           "packageDependencies": [
-            ["minimist", "npm:1.2.5"]
+            ["minimist", "npm:1.2.8"]
           ],
           "linkType": "HARD",
         }]
