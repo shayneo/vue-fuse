@@ -1186,7 +1186,7 @@ __metadata:
     typescript: ^4.4.3
     vite: ^2.6.0
     vue: ^3.2.20
-    vue-fuse: "workspace:*"
+    vue-fuse: 4.1.1
     vue-tsc: ^0.3.0
   languageName: unknown
   linkType: soft
@@ -2709,21 +2709,12 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.25":
-  version: 3.1.28
-  resolution: "nanoid@npm:3.1.28"
+"nanoid@npm:^3.1.25, nanoid@npm:^3.1.28":
+  version: 3.3.6
+  resolution: "nanoid@npm:3.3.6"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: ae2fa9f3ce7a690ec62fc2fdf92345f023b20db760024f767c25ad392bde6414dc0b44a8e66dc1209426f36e4771e63b09ad2b49d8f1b04063b37e21b46af8d0
-  languageName: node
-  linkType: hard
-
-"nanoid@npm:^3.1.28":
-  version: 3.1.29
-  resolution: "nanoid@npm:3.1.29"
-  bin:
-    nanoid: bin/nanoid.cjs
-  checksum: 8837bc351ac6d26882d568ce3e1d5e2d5095b0c6ca99aa8f5710eff5153e0aea4c5273681c7642d9d7a6f6e20fb1d32e5eb1125c70b25bdead417f007d30f96f
+  checksum: 7d0eda657002738aa5206107bd0580aead6c95c460ef1bdd0b1a87a9c7ae6277ac2e9b945306aaa5b32c6dcb7feaf462d0f552e7f8b5718abfc6ead5c94a71b3
   languageName: node
   linkType: hard
 
@@ -4164,7 +4155,7 @@ typescript@^4.4.3:
   languageName: unknown
   linkType: soft
 
-"vue-fuse@workspace:*, vue-fuse@workspace:apps/vue-fuse":
+"vue-fuse@4.1.1, vue-fuse@workspace:apps/vue-fuse":
   version: 0.0.0-use.local
   resolution: "vue-fuse@workspace:apps/vue-fuse"
   dependencies:
